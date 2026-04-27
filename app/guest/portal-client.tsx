@@ -94,44 +94,32 @@ export default function GuestPortalClient() {
   return (
     <div className="min-h-screen bg-[#060606] text-white">
       <main className="w-full pb-28">
-        <section className="relative flex min-h-[88svh] items-center justify-center overflow-hidden pt-8 sm:pt-12">
+        <section className="relative flex min-h-[68svh] items-center justify-center overflow-hidden pt-4 sm:min-h-[72svh] sm:pt-8">
           <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png"
             alt="Hotel Excella exterior"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/85" />
-          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-6 py-24 text-center sm:px-8">
+          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-6 py-16 text-center sm:px-8 sm:py-20">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
               alt="Hotel Excella Logo"
               width={180}
               height={90}
-              className="h-auto w-[132px] sm:w-[150px]"
+              className="h-auto w-[122px] drop-shadow-[0_0_16px_rgba(0,0,0,0.45)] sm:w-[142px]"
               priority
             />
-            <p className="mt-8 text-[18px] font-semibold tracking-wide text-white">Welcome to</p>
-            <h1 className="mt-1 font-serif text-[3rem] font-semibold leading-[0.96] tracking-[0.01em] text-[#d7b35f] sm:text-[3.5rem]">
-              Hotel Excella
+            <h1 className="mt-6 font-serif text-[2rem] font-semibold leading-[1.08] tracking-[0.01em] text-[#d7b35f] sm:text-[2.5rem]">
+              Welcome to <span className="whitespace-nowrap">Hotel Excella</span>
             </h1>
-            <p className="mt-6 text-[1.05rem] font-medium leading-[1.25] text-[#d7b35f]">
-              Premium comfort in the heart of Vizag.
+            <p className="mt-3 text-[0.92rem] font-medium leading-[1.3] text-white/88 sm:text-[1rem]">
+              Quick services at your fingertips
             </p>
-            <p className="mt-4 max-w-xl text-[0.95rem] leading-[1.5] text-white/82">
-              A stay designed with comfort, cleanliness and convenience in mind.
-            </p>
-            <a
-              href="https://hotelexcella.bookmystay.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex w-full max-w-[340px] items-center justify-center rounded-2xl border border-[#d7b877] bg-[#c8a45c] px-6 py-3.5 text-xl font-semibold text-black transition hover:bg-[#d7b877]"
-            >
-              Book Now
-            </a>
           </div>
         </section>
 
-        <div className="mx-auto w-full max-w-6xl px-4 pb-8 pt-6 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-6xl px-4 pb-8 pt-3 sm:px-6 sm:pt-4 lg:px-8">
           <section className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
             {quickActions.map((action, index) => {
               const Card = (
@@ -262,21 +250,21 @@ export default function GuestPortalClient() {
 
             {activePopup === "payment" ? (
               <div className="space-y-4 text-sm text-[#34302a]">
-                <p>
-                  Please make payments only to authorized Hotel Excella payment channels or approved persons.
-                </p>
+                <div className="rounded-2xl border-2 border-[#c9a14f] bg-[#fff6df] p-4">
+                  <p className="font-semibold text-[#3a2b10]">
+                    Payments made to unauthorized personal staff accounts may not be considered valid.
+                  </p>
+                </div>
+                <p>Please make payments only to authorized Hotel Excella payment channels or approved persons.</p>
                 <div className="rounded-2xl border border-[#d0ab63]/45 bg-white p-4">
                   <p className="mb-2 text-xs uppercase tracking-wide text-[#ad8130]">Authorized Recipients</p>
                   <ul className="space-y-1.5">
                     <li>• Sanvi Group of Hotels QR</li>
-                    <li>• Shobhan Kumar</li>
                     <li>• Nageswararao K</li>
+                    <li>• Shobhan Kumar K</li>
                   </ul>
                 </div>
-                <p className="rounded-2xl border border-rose-300/45 bg-rose-50 p-3 text-rose-800">
-                  Payments made to unauthorized personal staff accounts may not be considered valid.
-                </p>
-                <p className="text-[#4a433b]">Kindly contact management before making payment.</p>
+                <p className="text-[#4a433b]">If unsure, kindly contact reception before making payment.</p>
                 <div className="grid grid-cols-2 gap-3 pt-1">
                   <button
                     type="button"
