@@ -2,6 +2,7 @@
 
 import { type ComponentType, useEffect, useMemo, useState } from "react"
 import Image from "next/image"
+import { StickyCTA } from "@/components/sticky-cta"
 import {
   AlertCircle,
   BedDouble,
@@ -77,7 +78,7 @@ export default function GuestPortalClient() {
         icon: Phone,
         title: "Reception Help",
         description: "Dial 9 from landline or call mobile",
-        href: "tel:+917702483811",
+        href: "tel:+919985908131",
       },
       {
         icon: AlertCircle,
@@ -92,154 +93,155 @@ export default function GuestPortalClient() {
 
   return (
     <div className="min-h-screen bg-[#060606] text-white">
-      <main className="mx-auto w-full max-w-[430px] px-4 pb-8 pt-4 sm:px-5">
-        <section className="rounded-[28px] border border-[#c8a45c]/45 bg-gradient-to-b from-[#0d0d0d] via-[#090909] to-[#060606] p-4 shadow-[0_26px_60px_-38px_rgba(214,174,90,0.88)]">
-          <div className="relative overflow-hidden rounded-[22px] border border-[#c8a45c]/55 bg-[#090909]">
-            <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png"
-              alt="Hotel Excella exterior"
-              className="h-[560px] w-full object-cover object-center"
+      <main className="w-full pb-28">
+        <section className="relative flex min-h-[88svh] items-center justify-center overflow-hidden pt-8 sm:pt-12">
+          <img
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png"
+            alt="Hotel Excella exterior"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/85" />
+          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-6 py-24 text-center sm:px-8">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
+              alt="Hotel Excella Logo"
+              width={180}
+              height={90}
+              className="h-auto w-[132px] sm:w-[150px]"
+              priority
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/82" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
-                alt="Hotel Excella Logo"
-                width={160}
-                height={80}
-                className="h-auto w-[126px]"
-                priority
-              />
-              <p className="mt-6 text-[18px] font-semibold tracking-wide text-white">Welcome to</p>
-              <h1 className="mt-1 font-serif text-[3rem] font-semibold leading-[0.96] tracking-[0.01em] text-[#d7b35f]">
-                Hotel Excella
-              </h1>
-              <p className="mt-6 text-[1.05rem] font-medium leading-[1.25] text-[#d7b35f]">
-                Premium comfort in the heart of Vizag.
-              </p>
-              <p className="mt-4 text-[0.95rem] leading-[1.45] text-white/82">
-                A stay designed with comfort, cleanliness and convenience in mind.
-              </p>
-              <a
-                href="https://hotelexcella.bookmystay.io/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex w-full max-w-[340px] items-center justify-center rounded-2xl border border-[#d7b877] bg-[#c8a45c] px-6 py-3.5 text-xl font-semibold text-black transition hover:bg-[#d7b877]"
-              >
-                Book Now
-              </a>
-            </div>
+            <p className="mt-8 text-[18px] font-semibold tracking-wide text-white">Welcome to</p>
+            <h1 className="mt-1 font-serif text-[3rem] font-semibold leading-[0.96] tracking-[0.01em] text-[#d7b35f] sm:text-[3.5rem]">
+              Hotel Excella
+            </h1>
+            <p className="mt-6 text-[1.05rem] font-medium leading-[1.25] text-[#d7b35f]">
+              Premium comfort in the heart of Vizag.
+            </p>
+            <p className="mt-4 max-w-xl text-[0.95rem] leading-[1.5] text-white/82">
+              A stay designed with comfort, cleanliness and convenience in mind.
+            </p>
+            <a
+              href="https://hotelexcella.bookmystay.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex w-full max-w-[340px] items-center justify-center rounded-2xl border border-[#d7b877] bg-[#c8a45c] px-6 py-3.5 text-xl font-semibold text-black transition hover:bg-[#d7b877]"
+            >
+              Book Now
+            </a>
           </div>
         </section>
 
-        <section className="mt-5 grid grid-cols-2 gap-3">
-          {quickActions.map((action, index) => {
-            const Card = (
-              <>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c8a45c]/55 bg-[#101010] text-[#d4ad5a]">
-                  <action.icon className="h-[21px] w-[21px]" />
-                </div>
-                <h2 className="mt-4 text-[1.03rem] font-semibold leading-tight text-white">{action.title}</h2>
-                <p className="mt-1 text-[0.91rem] leading-snug text-white/73">{action.description}</p>
-              </>
-            )
+        <div className="mx-auto w-full max-w-6xl px-4 pb-8 pt-6 sm:px-6 lg:px-8">
+          <section className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+            {quickActions.map((action, index) => {
+              const Card = (
+                <>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c8a45c]/55 bg-[#101010] text-[#d4ad5a]">
+                    <action.icon className="h-[21px] w-[21px]" />
+                  </div>
+                  <h2 className="mt-4 text-[1.03rem] font-semibold leading-tight text-white">{action.title}</h2>
+                  <p className="mt-1 text-[0.91rem] leading-snug text-white/73">{action.description}</p>
+                </>
+              )
 
-            const classes =
-              "group flex min-h-[172px] flex-col justify-center rounded-2xl border border-[#c8a45c]/45 bg-gradient-to-b from-[#111111] to-[#0b0b0b] p-4 text-left shadow-[0_20px_34px_-33px_rgba(0,0,0,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d7b877] active:scale-[0.985]"
+              const classes =
+                "group flex min-h-[172px] flex-col justify-center rounded-2xl border border-[#c8a45c]/45 bg-gradient-to-b from-[#111111] to-[#0b0b0b] p-4 text-left shadow-[0_20px_34px_-33px_rgba(0,0,0,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d7b877] active:scale-[0.985]"
 
-            if (action.onClick) {
+              if (action.onClick) {
+                return (
+                  <button
+                    key={action.title}
+                    type="button"
+                    onClick={action.onClick}
+                    className={classes}
+                    style={{ animation: `fadeCard 360ms ease ${index * 70}ms both` }}
+                  >
+                    {Card}
+                  </button>
+                )
+              }
+
               return (
-                <button
+                <a
                   key={action.title}
-                  type="button"
-                  onClick={action.onClick}
+                  href={action.href}
+                  target={action.external ? "_blank" : undefined}
+                  rel={action.external ? "noopener noreferrer" : undefined}
                   className={classes}
                   style={{ animation: `fadeCard 360ms ease ${index * 70}ms both` }}
                 >
                   {Card}
-                </button>
+                </a>
               )
-            }
+            })}
+          </section>
 
-            return (
-              <a
-                key={action.title}
-                href={action.href}
-                target={action.external ? "_blank" : undefined}
-                rel={action.external ? "noopener noreferrer" : undefined}
-                className={classes}
-                style={{ animation: `fadeCard 360ms ease ${index * 70}ms both` }}
-              >
-                {Card}
-              </a>
-            )
-          })}
-        </section>
-
-        <button
-          type="button"
-          onClick={() => setActivePopup("payment")}
-          className="mt-3 flex min-h-[88px] w-full items-center gap-3 rounded-2xl border border-[#c8a45c]/55 bg-gradient-to-r from-[#111111] to-[#0b0b0b] p-4 text-left shadow-[0_18px_35px_-32px_rgba(0,0,0,0.95)] transition-all duration-300 hover:border-[#d7b877] active:scale-[0.99]"
-          style={{ animation: "fadeCard 360ms ease 460ms both" }}
-        >
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c8a45c]/45 bg-[#101010] text-[#d4ad5a]">
-            <ShieldCheck className="h-[21px] w-[21px]" />
-          </div>
-          <div className="min-w-0 flex-1">
-            <h2 className="text-[1.1rem] font-semibold">Payment Info</h2>
-            <p className="mt-1 text-sm text-white/75">Important payment information</p>
-          </div>
-          <ChevronRight className="h-6 w-6 text-[#d4ad5a]" />
-        </button>
-
-        <section className="mt-4 grid grid-cols-3 gap-2.5">
-          <div className="rounded-xl border border-white/10 bg-[#0f0f0f] p-3 text-center">
-            <Clock3 className="mx-auto h-4 w-4 text-[#d4ad5a]" />
-            <p className="mt-1 text-[11px] text-white/70">Check-in</p>
-            <p className="text-sm font-semibold text-white">1:00 PM</p>
-          </div>
-          <div className="rounded-xl border border-white/10 bg-[#0f0f0f] p-3 text-center">
-            <CalendarClock className="mx-auto h-4 w-4 text-[#d4ad5a]" />
-            <p className="mt-1 text-[11px] text-white/70">Check-out</p>
-            <p className="text-sm font-semibold text-white">11:00 AM</p>
-          </div>
-          <a
-            href="https://maps.app.goo.gl/C4MScoYMJLYnc3Gz6?g_st=ac"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-xl border border-white/10 bg-[#0f0f0f] p-3 text-center transition hover:border-[#c8a45c]/45"
+          <button
+            type="button"
+            onClick={() => setActivePopup("payment")}
+            className="mt-4 flex min-h-[88px] w-full items-center gap-3 rounded-2xl border border-[#c8a45c]/55 bg-gradient-to-r from-[#111111] to-[#0b0b0b] p-4 text-left shadow-[0_18px_35px_-32px_rgba(0,0,0,0.95)] transition-all duration-300 hover:border-[#d7b877] active:scale-[0.99]"
+            style={{ animation: "fadeCard 360ms ease 460ms both" }}
           >
-            <MapPin className="mx-auto h-4 w-4 text-[#d4ad5a]" />
-            <p className="mt-1 text-[11px] text-white/70">Address</p>
-            <p className="text-xs font-semibold leading-tight text-white">Hotel Excella, Vizag</p>
-          </a>
-        </section>
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c8a45c]/45 bg-[#101010] text-[#d4ad5a]">
+              <ShieldCheck className="h-[21px] w-[21px]" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <h2 className="text-[1.1rem] font-semibold">Payment Info</h2>
+              <p className="mt-1 text-sm text-white/75">Important payment information</p>
+            </div>
+            <ChevronRight className="h-6 w-6 text-[#d4ad5a]" />
+          </button>
 
-        <section className="mt-4 rounded-2xl border border-[#c8a45c]/35 bg-[#0f0f0f] px-4 py-3.5 text-center">
-          <p className="text-sm tracking-wide text-[#d7bf8a]">Follow us at</p>
-          <div className="mt-3 flex items-center justify-center gap-3">
+          <section className="mt-4 grid grid-cols-3 gap-2.5 sm:gap-3">
+            <div className="rounded-xl border border-white/10 bg-[#0f0f0f] p-3 text-center">
+              <Clock3 className="mx-auto h-4 w-4 text-[#d4ad5a]" />
+              <p className="mt-1 text-[11px] text-white/70">Check-in</p>
+              <p className="text-sm font-semibold text-white">1:00 PM</p>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-[#0f0f0f] p-3 text-center">
+              <CalendarClock className="mx-auto h-4 w-4 text-[#d4ad5a]" />
+              <p className="mt-1 text-[11px] text-white/70">Check-out</p>
+              <p className="text-sm font-semibold text-white">11:00 AM</p>
+            </div>
             <a
-              href="https://www.instagram.com/hotelexcella_vizag"
+              href="https://maps.app.goo.gl/C4MScoYMJLYnc3Gz6?g_st=ac"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Follow Hotel Excella on Instagram"
-              className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
+              className="rounded-xl border border-white/10 bg-[#0f0f0f] p-3 text-center transition hover:border-[#c8a45c]/45"
             >
-              <Instagram className="h-[18px] w-[18px]" />
+              <MapPin className="mx-auto h-4 w-4 text-[#d4ad5a]" />
+              <p className="mt-1 text-[11px] text-white/70">Address</p>
+              <p className="text-xs font-semibold leading-tight text-white">Hotel Excella, Vizag</p>
             </a>
-            <a
-              href="https://www.linkedin.com/company/sanvigroupofhotels-vizag/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow Hotel Excella on LinkedIn"
-              className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
-            >
-              <Linkedin className="h-[18px] w-[18px]" />
-            </a>
-          </div>
-        </section>
+          </section>
 
+          <section className="mt-4 rounded-2xl border border-[#c8a45c]/35 bg-[#0f0f0f] px-4 py-3.5 text-center">
+            <p className="text-sm tracking-wide text-[#d7bf8a]">Follow us at</p>
+            <div className="mt-3 flex items-center justify-center gap-3">
+              <a
+                href="https://www.instagram.com/hotelexcella_vizag"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Hotel Excella on Instagram"
+                className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
+              >
+                <Instagram className="h-[18px] w-[18px]" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/sanvigroupofhotels-vizag/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Hotel Excella on LinkedIn"
+                className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
+              >
+                <Linkedin className="h-[18px] w-[18px]" />
+              </a>
+            </div>
+          </section>
+        </div>
       </main>
+
+      <StickyCTA />
 
       {activePopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/72 p-4 backdrop-blur-sm animate-in fade-in duration-300">
@@ -284,7 +286,7 @@ export default function GuestPortalClient() {
                     Understood
                   </button>
                   <a
-                    href="tel:+917702483811"
+                    href="tel:+919985908131"
                     className="rounded-xl bg-[#c8a45c] px-4 py-3 text-center text-sm font-semibold text-black transition hover:bg-[#d7b877]"
                   >
                     Contact Management
