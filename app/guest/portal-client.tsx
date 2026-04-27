@@ -51,39 +51,39 @@ export default function GuestPortalClient() {
       {
         icon: Star,
         title: "Review Us",
-        description: "Share your experience",
+        description: "Share your experience and support our team",
         href: "/review",
       },
       {
         icon: Wifi,
         title: "WiFi Access",
-        description: "Connect to our internet",
+        description: "Connect instantly (No password required)",
         onClick: () => setActivePopup("wifi"),
       },
       {
         icon: UtensilsCrossed,
         title: "Food Menu",
-        description: "Browse dining options",
+        description: "Order food directly to your room",
         href: "https://hotelexcellafoodmenu.netlify.app/",
         external: true,
       },
       {
         icon: BedDouble,
         title: "Book / Extend Stay",
-        description: "Manage your reservation",
+        description: "Extend your stay or book again at best direct rates",
         href: "https://hotelexcella.bookmystay.io/",
         external: true,
       },
       {
         icon: Phone,
         title: "Reception Help",
-        description: "Dial 9 from landline or call mobile",
+        description: "Dial 9 or call reception anytime",
         href: "tel:+919985908131",
       },
       {
         icon: AlertCircle,
         title: "Report an Issue",
-        description: "We're here to help",
+        description: "Facing any issue? We’ll resolve it quickly",
         href: "https://wa.me/919985908131?text=Hi%2C%20I%20am%20a%20guest%20at%20Hotel%20Excella%20and%20I%20would%20like%20to%20report%20an%20issue.",
         external: true,
       },
@@ -94,14 +94,14 @@ export default function GuestPortalClient() {
   return (
     <div className="min-h-screen bg-[#060606] text-white">
       <main className="w-full pb-28">
-        <section className="relative flex min-h-[68svh] items-center justify-center overflow-hidden pt-4 sm:min-h-[72svh] sm:pt-8">
+        <section className="relative flex min-h-[62svh] items-center justify-center overflow-hidden pt-2 sm:min-h-[64svh] sm:pt-4">
           <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png"
             alt="Hotel Excella exterior"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/85" />
-          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-6 py-14 text-center sm:px-8 sm:py-16">
+          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-6 py-12 text-center sm:px-8 sm:py-14">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
               alt="Hotel Excella Logo"
@@ -119,7 +119,7 @@ export default function GuestPortalClient() {
           </div>
         </section>
 
-        <div className="mx-auto w-full max-w-6xl px-4 pb-8 pt-1 sm:px-6 sm:pt-2 lg:px-8">
+        <div className="mx-auto w-full max-w-6xl px-4 pb-8 pt-0 sm:px-6 sm:pt-0 lg:px-8">
           <section className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
             {quickActions.map((action, index) => {
               const Card = (
@@ -133,7 +133,7 @@ export default function GuestPortalClient() {
               )
 
               const classes =
-                "group flex min-h-[172px] flex-col justify-center rounded-2xl border border-[#c8a45c]/45 bg-gradient-to-b from-[#111111] to-[#0b0b0b] p-4 text-left shadow-[0_20px_34px_-33px_rgba(0,0,0,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d7b877] active:scale-[0.985]"
+                "group flex min-h-[172px] flex-col justify-center rounded-2xl border border-[#c8a45c]/45 bg-gradient-to-b from-[#111111] to-[#0b0b0b] p-4 text-left shadow-[0_20px_34px_-33px_rgba(0,0,0,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d7b877] active:scale-[0.97]"
 
               if (action.onClick) {
                 return (
@@ -179,6 +179,9 @@ export default function GuestPortalClient() {
             </div>
             <ChevronRight className="h-6 w-6 text-[#d4ad5a]" />
           </button>
+          <p className="mt-3 text-center text-xs text-[#d7bf8a]/85">
+            For your safety, please pay only via official hotel channels
+          </p>
 
           <section className="mt-4 grid grid-cols-3 gap-2.5 sm:gap-3">
             <div className="rounded-xl border border-white/10 bg-[#0f0f0f] p-3 text-center">
@@ -236,7 +239,7 @@ export default function GuestPortalClient() {
           <div className="w-full max-w-md rounded-3xl border border-[#d0ab63]/75 bg-[#f8f6f1] p-5 text-[#1d1a16] shadow-2xl animate-in zoom-in-95 duration-300">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="font-serif text-[1.65rem] font-semibold text-[#1f1b16]">
-                {activePopup === "payment" ? "Payment Notice" : "WiFi Access"}
+                {activePopup === "payment" ? "🚨 Payment Notice" : "WiFi Access"}
               </h3>
               <button
                 type="button"
@@ -255,16 +258,15 @@ export default function GuestPortalClient() {
                     Payments made to unauthorized personal staff accounts may not be considered valid.
                   </p>
                 </div>
-                <p>Please make payments only to authorized Hotel Excella payment channels or approved persons.</p>
+                <p>If you were asked or forced to make payment to any personal number, please contact management immediately.</p>
                 <div className="rounded-2xl border border-[#d0ab63]/45 bg-white p-4">
-                  <p className="mb-2 text-xs uppercase tracking-wide text-[#ad8130]">Authorized Recipients</p>
+                  <p className="mb-2 text-xs uppercase tracking-wide text-[#ad8130]">Authorized Payments</p>
                   <ul className="space-y-1.5">
                     <li>• Sanvi Group of Hotels QR</li>
+                    <li>• Shobhan Kumar</li>
                     <li>• Nageswararao K</li>
-                    <li>• Shobhan Kumar K</li>
                   </ul>
                 </div>
-                <p className="text-[#4a433b]">If unsure, kindly contact Management before making payment.</p>
                 <div className="grid grid-cols-2 gap-3 pt-1">
                   <button
                     type="button"
