@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { StickyCTA } from "@/components/sticky-cta"
@@ -16,7 +15,15 @@ import {
   CheckCircle,
   ArrowRight,
   Loader2,
+  X,
 } from "lucide-react"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
 
 export default function PrebookPage() {
   const [formData, setFormData] = useState({
@@ -27,14 +34,16 @@ export default function PrebookPage() {
     checkOut: "",
     adults: "2",
     children: "0",
+    rooms: "1",
     roomPreference: "Queen Executive Room",
     specialRequests: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (isSubmitting) return
     setIsSubmitting(true)
 
     try {
@@ -47,11 +56,7 @@ export default function PrebookPage() {
       const data = await response.json()
 
       if (response.ok && data.success) {
-        setIsSubmitted(true)
-        // Redirect to booking engine after 2.5 seconds
-        setTimeout(() => {
-          window.location.href = "https://hotelexcella.bookmystay.io/"
-        }, 2500)
+        setIsSuccessModalOpen(true)
       }
     } catch (error) {
       console.error("Error submitting booking request:", error)
@@ -83,28 +88,7 @@ export default function PrebookPage() {
         {/* Booking Form Section */}
         <section className="py-12 lg:py-20">
           <div className="mx-auto max-w-3xl px-4">
-            {isSubmitted ? (
-              /* Success Message */
-              <div className="text-center py-12">
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-6">
-                  <CheckCircle className="h-10 w-10 text-primary" />
-                </div>
-                <h2 className="font-serif text-2xl font-bold text-foreground lg:text-3xl">
-                  Booking Request Received!
-                </h2>
-                <p className="mt-4 text-lg text-muted-foreground">
-                  Thank you for your booking request. Our team will contact you shortly.
-                </p>
-                <p className="mt-2 text-muted-foreground">
-                  Redirecting you to complete your booking...
-                </p>
-                <div className="mt-6 flex items-center justify-center gap-2 text-primary">
-                  <Loader2 className="h-5 w-5 animate-spin" />
-                  <span className="font-medium">Please wait</span>
-                </div>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Guest Details */}
                 <div className="bg-card rounded-2xl border border-border p-6 lg:p-8">
                   <h2 className="font-serif text-xl font-bold text-foreground mb-6 flex items-center gap-2">
@@ -231,23 +215,20 @@ export default function PrebookPage() {
                         className="block text-sm font-medium text-foreground mb-2"
                       >
                         <Users className="h-4 w-4 inline mr-1" />
-                        Adults <span className="text-destructive">*</span>
+                        Adults / Guests <span className="text-destructive">*</span>
                       </label>
-                      <select
+                      <input
+                        type="number"
                         id="adults"
                         required
+                        min={0}
                         value={formData.adults}
                         onChange={(e) =>
                           setFormData({ ...formData, adults: e.target.value })
                         }
                         className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                      >
-                        {[1, 2, 3, 4, 5, 6].map((num) => (
-                          <option key={num} value={num}>
-                            {num} {num === 1 ? "Adult" : "Adults"}
-                          </option>
-                        ))}
-                      </select>
+                        placeholder="2"
+                      />
                     </div>
 
                     <div>
@@ -257,20 +238,38 @@ export default function PrebookPage() {
                       >
                         Children
                       </label>
-                      <select
+                      <input
+                        type="number"
                         id="children"
+                        min={0}
                         value={formData.children}
                         onChange={(e) =>
                           setFormData({ ...formData, children: e.target.value })
                         }
                         className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                        placeholder="0"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="rooms"
+                        className="block text-sm font-medium text-foreground mb-2"
                       >
-                        {[0, 1, 2, 3, 4].map((num) => (
-                          <option key={num} value={num}>
-                            {num} {num === 1 ? "Child" : "Children"}
-                          </option>
-                        ))}
-                      </select>
+                        Number of Rooms <span className="text-destructive">*</span>
+                      </label>
+                      <input
+                        type="number"
+                        id="rooms"
+                        required
+                        min={1}
+                        value={formData.rooms}
+                        onChange={(e) =>
+                          setFormData({ ...formData, rooms: e.target.value })
+                        }
+                        className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                        placeholder="1"
+                      />
                     </div>
 
                     <div className="sm:col-span-2">
@@ -365,13 +364,13 @@ export default function PrebookPage() {
                   disabled={isSubmitting}
                   className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="h-5 w-5 animate-spin" />
-                      Processing...
-                    </>
-                  ) : (
-                    <>
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="h-5 w-5 animate-spin" />
+                          Sending Inquiry...
+                        </>
+                      ) : (
+                        <>
                       Check Availability
                       <ArrowRight className="h-5 w-5" />
                     </>
@@ -379,10 +378,9 @@ export default function PrebookPage() {
                 </button>
 
                 <p className="text-center text-sm text-muted-foreground">
-                  By submitting, you&apos;ll be redirected to complete your booking
+                  We&apos;ll confirm your inquiry first, then you can choose whether to proceed to booking.
                 </p>
-              </form>
-            )}
+            </form>
           </div>
         </section>
 
@@ -420,6 +418,54 @@ export default function PrebookPage() {
 
       <Footer />
       <StickyCTA />
+
+      <Dialog open={isSuccessModalOpen} onOpenChange={setIsSuccessModalOpen}>
+        <DialogContent className="border-primary/40 bg-black text-white sm:max-w-xl">
+          <button
+            type="button"
+            onClick={() => setIsSuccessModalOpen(false)}
+            className="absolute right-4 top-4 rounded-full border border-primary/40 p-1 text-primary transition-colors hover:bg-primary/10"
+            aria-label="Close"
+          >
+            <X className="h-4 w-4" />
+          </button>
+          <DialogHeader className="space-y-4">
+            <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full border border-primary/40 bg-primary/10">
+              <CheckCircle className="h-8 w-8 text-primary" />
+            </div>
+            <DialogTitle className="text-center font-serif text-2xl text-primary">
+              Thank You for Your Inquiry
+            </DialogTitle>
+            <DialogDescription className="text-center text-base text-zinc-300">
+              We have received your inquiry successfully.
+              <br />
+              <br />
+              Our team will get back to you with the best available quote as soon as possible.
+              <br />
+              <br />
+              If you prefer to make an instant booking now, you may proceed to our official booking page.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="mt-2 grid gap-3 sm:grid-cols-2">
+            <button
+              type="button"
+              onClick={() => {
+                window.location.href = "https://hotelexcella.bookmystay.io/"
+              }}
+              className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-3 font-semibold text-primary-foreground transition-all hover:bg-primary/90"
+            >
+              Proceed to Booking
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsSuccessModalOpen(false)}
+              className="inline-flex items-center justify-center rounded-lg border border-primary/40 px-4 py-3 font-medium text-primary transition-colors hover:bg-primary/10"
+            >
+              Close
+            </button>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <div className="h-16 lg:hidden" />
     </div>

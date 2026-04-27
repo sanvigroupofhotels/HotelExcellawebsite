@@ -11,9 +11,11 @@ export async function POST(request: NextRequest) {
       checkOut,
       adults,
       children,
+      rooms = "1",
       roomPreference,
       specialRequests,
     } = body
+    const submissionTimestamp = new Date().toISOString()
 
     // Format the email content for hotel
     const hotelEmailSubject = "New Booking Request - Hotel Excella"
@@ -32,10 +34,13 @@ Check-in Date: ${checkIn}
 Check-out Date: ${checkOut}
 Adults: ${adults}
 Children: ${children}
+Number of Rooms: ${rooms}
 Room Preference: ${roomPreference}
 
 Special Requests:
 ${specialRequests || "None"}
+
+Submission Timestamp: ${submissionTimestamp}
 
 ---
 This booking request was submitted via the Hotel Excella website.
@@ -55,6 +60,8 @@ Check-in: ${checkIn}
 Check-out: ${checkOut}
 Room: ${roomPreference}
 Guests: ${adults} Adults, ${children} Children
+Rooms: ${rooms}
+Submitted At: ${submissionTimestamp}
 
 Our team will contact you shortly to confirm availability and complete your booking.
 
