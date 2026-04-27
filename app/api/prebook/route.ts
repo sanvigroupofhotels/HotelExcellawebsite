@@ -71,7 +71,7 @@ Visakhapatnam
     `.trim()
 
     // Send emails using Resend or fallback to logging
-    const resendApiKey = process.env.RESEND_API_KEY
+    const resendApiKey = process.env.RESEND_API_KEY_ENQUIRIES
 
     if (resendApiKey) {
       // Send to hotel

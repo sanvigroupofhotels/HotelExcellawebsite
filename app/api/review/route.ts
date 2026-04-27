@@ -25,8 +25,7 @@ This feedback was submitted via the Hotel Excella website review page.
     `.trim()
 
     // Send email using Resend or fallback to logging
-    // For production, configure Resend API key
-    const resendApiKey = process.env.RESEND_API_KEY
+    const resendApiKey = process.env.RESEND_API_KEY_REVIEWS
 
     if (resendApiKey) {
       const response = await fetch("https://api.resend.com/emails", {
