@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/orderfood",
+      "destination": "https://hotel-excella-orderfood.vercel.app"
+    },
+    {
+      "source": "/orderfood/",
+      "destination": "https://hotel-excella-orderfood.vercel.app/"
+    },
+    {
+      "source": "/orderfood/:path*",
+      "destination": "https://hotel-excella-orderfood.vercel.app/:path*"
+    }
+  ]
+}

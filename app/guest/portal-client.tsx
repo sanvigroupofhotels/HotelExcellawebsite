@@ -64,8 +64,7 @@ export default function GuestPortalClient() {
         icon: UtensilsCrossed,
         title: "Food Menu",
         description: "Order food directly to your room",
-        href: "https://hotelexcellafoodmenu.netlify.app/",
-        external: true,
+        href: "/orderfood",
       },
       {
         icon: BedDouble,
