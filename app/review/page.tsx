@@ -5,7 +5,14 @@ import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { StickyCTA } from "@/components/sticky-cta"
-import { Star, ExternalLink, CheckCircle, Send } from "lucide-react"
+import { Star, CheckCircle, Send, Loader2, X } from "lucide-react"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
 
 export default function ReviewPage() {
   const [rating, setRating] = useState<number | null>(null)
@@ -18,10 +25,12 @@ export default function ReviewPage() {
     improvement: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isFeedbackSuccessModalOpen, setIsFeedbackSuccessModalOpen] = useState(false)
+  const [isHighRatingModalOpen, setIsHighRatingModalOpen] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (isSubmitting) return
     setIsSubmitting(true)
 
     try {
@@ -32,7 +41,14 @@ export default function ReviewPage() {
       })
 
       if (response.ok) {
-        setIsSubmitted(true)
+        setIsFeedbackSuccessModalOpen(true)
+        setFormData({
+          name: "",
+          phone: "",
+          roomNumber: "",
+          issue: "",
+          improvement: "",
+        })
       }
     } catch (error) {
       console.error("Error submitting feedback:", error)
@@ -80,7 +96,12 @@ export default function ReviewPage() {
                   {[1, 2, 3, 4, 5].map((star) => (
                     <button
                       key={star}
-                      onClick={() => setRating(star)}
+                      onClick={() => {
+                        setRating(star)
+                        if (star >= 4) {
+                          setIsHighRatingModalOpen(true)
+                        }
+                      }}
                       onMouseEnter={() => setHoveredRating(star)}
                       onMouseLeave={() => setHoveredRating(null)}
                       className="group flex flex-col items-center gap-2 transition-transform hover:scale-110"
@@ -109,48 +130,22 @@ export default function ReviewPage() {
                   We&apos;re delighted you enjoyed your stay!
                 </h2>
                 <p className="mt-4 text-lg text-muted-foreground">
-                  Would you mind sharing your experience on Google? It helps other
-                  travelers discover Hotel Excella.
+                  Please use the popup to continue and share your experience on Google.
                 </p>
-                <a
-                  href={googleReviewUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={() => setIsHighRatingModalOpen(true)}
                   className="mt-8 inline-flex items-center gap-3 rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105"
                 >
                   <Star className="h-5 w-5 fill-current" />
-                  Leave Google Review
-                  <ExternalLink className="h-5 w-5" />
-                </a>
+                  Open Review Popup
+                </button>
                 <button
                   onClick={() => setRating(null)}
                   className="mt-4 block mx-auto text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Change rating
                 </button>
-              </div>
-            ) : isSubmitted ? (
-              /* Thank You Message */
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-6">
-                  <CheckCircle className="h-10 w-10 text-primary" />
-                </div>
-                <h2 className="font-serif text-2xl font-bold text-foreground lg:text-3xl">
-                  Thank you for your feedback
-                </h2>
-                <p className="mt-4 text-lg text-muted-foreground">
-                  We truly appreciate you taking the time to share your experience.
-                  Our team will review your feedback and work to improve.
-                </p>
-                <p className="mt-2 text-muted-foreground">
-                  If you need immediate assistance, please call us at{" "}
-                  <a
-                    href="tel:+919985908131"
-                    className="text-primary hover:underline"
-                  >
-                    +91 99859 08131
-                  </a>
-                </p>
               </div>
             ) : (
               /* Private Feedback Form */
@@ -274,7 +269,10 @@ export default function ReviewPage() {
                       className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
-                        "Submitting..."
+                        <>
+                          <Loader2 className="h-5 w-5 animate-spin" />
+                          Sending Inquiry...
+                        </>
                       ) : (
                         <>
                           <Send className="h-5 w-5" />
@@ -299,6 +297,67 @@ export default function ReviewPage() {
 
       <Footer />
       <StickyCTA />
+
+      <Dialog
+        open={isFeedbackSuccessModalOpen}
+        onOpenChange={setIsFeedbackSuccessModalOpen}
+      >
+        <DialogContent className="border-primary/40 bg-black text-white sm:max-w-lg">
+          <button
+            type="button"
+            onClick={() => setIsFeedbackSuccessModalOpen(false)}
+            className="absolute right-4 top-4 rounded-full border border-primary/40 p-1 text-primary transition-colors hover:bg-primary/10"
+            aria-label="Close"
+          >
+            <X className="h-4 w-4" />
+          </button>
+          <DialogHeader className="space-y-4">
+            <DialogTitle className="text-center font-serif text-2xl text-primary">
+              Thank You
+            </DialogTitle>
+            <DialogDescription className="text-center text-base text-zinc-300">
+              We appreciate your feedback and will use it to improve your next stay.
+            </DialogDescription>
+          </DialogHeader>
+          <button
+            type="button"
+            onClick={() => setIsFeedbackSuccessModalOpen(false)}
+            className="mt-2 inline-flex w-full items-center justify-center rounded-lg border border-primary/40 px-4 py-3 font-medium text-primary transition-colors hover:bg-primary/10"
+          >
+            Close
+          </button>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={isHighRatingModalOpen} onOpenChange={setIsHighRatingModalOpen}>
+        <DialogContent className="border-primary/40 bg-black text-white sm:max-w-lg">
+          <button
+            type="button"
+            onClick={() => setIsHighRatingModalOpen(false)}
+            className="absolute right-4 top-4 rounded-full border border-primary/40 p-1 text-primary transition-colors hover:bg-primary/10"
+            aria-label="Close"
+          >
+            <X className="h-4 w-4" />
+          </button>
+          <DialogHeader className="space-y-4">
+            <DialogTitle className="text-center font-serif text-2xl text-primary">
+              We&apos;re delighted you enjoyed your stay.
+            </DialogTitle>
+            <DialogDescription className="text-center text-base text-zinc-300">
+              Thank you for your support. Please share your experience on Google.
+            </DialogDescription>
+          </DialogHeader>
+          <button
+            type="button"
+            onClick={() => {
+              window.location.href = googleReviewUrl
+            }}
+            className="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 font-semibold text-primary-foreground transition-all hover:bg-primary/90"
+          >
+            Leave Google Review
+          </button>
+        </DialogContent>
+      </Dialog>
 
       <div className="h-16 lg:hidden" />
     </div>
