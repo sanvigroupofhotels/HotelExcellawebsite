@@ -101,25 +101,25 @@ export default function GuestPortalClient() {
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/85" />
-          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-6 py-16 text-center sm:px-8 sm:py-20">
+          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-6 py-14 text-center sm:px-8 sm:py-16">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
               alt="Hotel Excella Logo"
               width={180}
               height={90}
-              className="h-auto w-[122px] drop-shadow-[0_0_16px_rgba(0,0,0,0.45)] sm:w-[142px]"
+              className="h-auto w-[132px] drop-shadow-[0_0_16px_rgba(0,0,0,0.45)] sm:w-[156px]"
               priority
             />
             <h1 className="mt-6 font-serif text-[2rem] font-semibold leading-[1.08] tracking-[0.01em] text-[#d7b35f] sm:text-[2.5rem]">
               Welcome to <span className="whitespace-nowrap">Hotel Excella</span>
             </h1>
-            <p className="mt-3 text-[0.92rem] font-medium leading-[1.3] text-white/88 sm:text-[1rem]">
+            <p className="mt-2 text-[0.92rem] font-medium leading-[1.3] text-white/88 sm:text-[1rem]">
               Quick services at your fingertips
             </p>
           </div>
         </section>
 
-        <div className="mx-auto w-full max-w-6xl px-4 pb-8 pt-3 sm:px-6 sm:pt-4 lg:px-8">
+        <div className="mx-auto w-full max-w-6xl px-4 pb-8 pt-1 sm:px-6 sm:pt-2 lg:px-8">
           <section className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
             {quickActions.map((action, index) => {
               const Card = (
@@ -229,7 +229,7 @@ export default function GuestPortalClient() {
         </div>
       </main>
 
-      <StickyCTA />
+      <StickyCTA guestMode onAlertClick={() => setActivePopup("payment")} />
 
       {activePopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/72 p-4 backdrop-blur-sm animate-in fade-in duration-300">
@@ -264,7 +264,7 @@ export default function GuestPortalClient() {
                     <li>• Shobhan Kumar K</li>
                   </ul>
                 </div>
-                <p className="text-[#4a433b]">If unsure, kindly contact reception before making payment.</p>
+                <p className="text-[#4a433b]">If unsure, kindly contact Management before making payment.</p>
                 <div className="grid grid-cols-2 gap-3 pt-1">
                   <button
                     type="button"
