@@ -8,7 +8,10 @@ import {
   CalendarClock,
   ChevronRight,
   Clock3,
+  Instagram,
   MapPin,
+  MessageCircle,
+  Navigation,
   Phone,
   ShieldCheck,
   Star,
@@ -90,35 +93,34 @@ export default function GuestPortalClient() {
   )
 
   return (
-    <div className="min-h-screen bg-[#070707] text-white">
-      <main className="mx-auto w-full max-w-md px-4 pb-8 pt-4 sm:max-w-xl sm:px-5">
-        <section className="rounded-[26px] border border-[#c8a45c]/45 bg-gradient-to-b from-[#0f0f0f] to-[#070707] p-4 shadow-[0_18px_50px_-35px_rgba(200,164,92,0.8)]">
+    <div className="min-h-screen bg-[#060606] text-white">
+      <main className="mx-auto w-full max-w-[430px] px-4 pb-8 pt-4 sm:px-5">
+        <section className="rounded-[28px] border border-[#c8a45c]/45 bg-gradient-to-b from-[#0d0d0d] via-[#090909] to-[#060606] p-4 shadow-[0_26px_60px_-38px_rgba(214,174,90,0.88)]">
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
             alt="Hotel Excella Logo"
-            width={180}
-            height={90}
-            className="mx-auto h-auto w-[160px]"
+            width={140}
+            height={70}
+            className="mx-auto h-auto w-[118px]"
             priority
           />
 
-          <div className="relative mt-4 overflow-hidden rounded-2xl border border-[#c8a45c]/35">
-            <Image
-              src="/placeholder.jpg"
+          <div className="relative mt-4 overflow-hidden rounded-[22px] border border-[#c8a45c]/55 bg-[#090909]">
+            <img
+              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=80"
               alt="Hotel Excella exterior"
-              width={900}
-              height={650}
-              className="h-[210px] w-full object-cover object-center sm:h-[250px]"
-              priority
+              className="h-[230px] w-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/60" />
           </div>
 
           <div className="mt-5 px-1 text-left">
-            <p className="text-[15px] text-[#d7bf8a]">Welcome to Hotel Excella</p>
-            <h1 className="mt-1 font-serif text-[2.1rem] font-semibold leading-[1.15] text-white">Hotel Excella</h1>
-            <p className="mt-2 text-[1.08rem] leading-snug text-[#f4efe6]">We are delighted to have you with us.</p>
-            <p className="mt-1.5 text-sm text-white/85">Quick Services at your fingertips</p>
+            <p className="text-[15px] tracking-wide text-[#d7bf8a]">Welcome to Hotel Excella</p>
+            <h1 className="mt-1 font-serif text-[2.02rem] font-semibold leading-[1.1] tracking-[0.01em] text-white">
+              Hotel Excella
+            </h1>
+            <p className="mt-2 text-[1.04rem] leading-snug text-[#f5efe3]">We are delighted to have you with us.</p>
+            <p className="mt-2 text-sm text-white/82">Quick Services at your fingertips</p>
           </div>
         </section>
 
@@ -126,16 +128,16 @@ export default function GuestPortalClient() {
           {quickActions.map((action, index) => {
             const Card = (
               <>
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#c8a45c]/45 bg-[#131313] text-[#d4ad5a]">
-                  <action.icon className="h-5 w-5" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c8a45c]/55 bg-[#101010] text-[#d4ad5a]">
+                  <action.icon className="h-[21px] w-[21px]" />
                 </div>
-                <h2 className="mt-3 text-[1.05rem] font-semibold leading-tight text-white">{action.title}</h2>
-                <p className="mt-1 text-xs leading-relaxed text-white/75">{action.description}</p>
+                <h2 className="mt-4 text-[1.03rem] font-semibold leading-tight text-white">{action.title}</h2>
+                <p className="mt-1 text-[0.91rem] leading-snug text-white/73">{action.description}</p>
               </>
             )
 
             const classes =
-              "group rounded-2xl border border-[#c8a45c]/45 bg-gradient-to-b from-[#121212] to-[#0d0d0d] p-4 text-left shadow-[0_18px_35px_-32px_rgba(0,0,0,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d7b877] active:translate-y-[1px]"
+              "group flex min-h-[172px] flex-col justify-center rounded-2xl border border-[#c8a45c]/45 bg-gradient-to-b from-[#111111] to-[#0b0b0b] p-4 text-left shadow-[0_20px_34px_-33px_rgba(0,0,0,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d7b877] active:scale-[0.985]"
 
             if (action.onClick) {
               return (
@@ -169,29 +171,29 @@ export default function GuestPortalClient() {
         <button
           type="button"
           onClick={() => setActivePopup("payment")}
-          className="mt-3 flex w-full items-center gap-3 rounded-2xl border border-[#c8a45c]/55 bg-gradient-to-r from-[#121212] to-[#0d0d0d] p-4 text-left shadow-[0_18px_35px_-32px_rgba(0,0,0,0.95)] transition-all duration-300 hover:border-[#d7b877] active:translate-y-[1px]"
+          className="mt-3 flex min-h-[88px] w-full items-center gap-3 rounded-2xl border border-[#c8a45c]/55 bg-gradient-to-r from-[#111111] to-[#0b0b0b] p-4 text-left shadow-[0_18px_35px_-32px_rgba(0,0,0,0.95)] transition-all duration-300 hover:border-[#d7b877] active:scale-[0.99]"
           style={{ animation: "fadeCard 360ms ease 460ms both" }}
         >
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#c8a45c]/45 bg-[#131313] text-[#d4ad5a]">
-            <ShieldCheck className="h-5 w-5" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c8a45c]/45 bg-[#101010] text-[#d4ad5a]">
+            <ShieldCheck className="h-[21px] w-[21px]" />
           </div>
           <div className="min-w-0 flex-1">
-            <h2 className="text-base font-semibold">Payment Info</h2>
-            <p className="mt-1 text-xs text-white/75">Important payment information</p>
+            <h2 className="text-[1.1rem] font-semibold">Payment Info</h2>
+            <p className="mt-1 text-sm text-white/75">Important payment information</p>
           </div>
-          <ChevronRight className="h-5 w-5 text-[#d4ad5a]" />
+          <ChevronRight className="h-6 w-6 text-[#d4ad5a]" />
         </button>
 
-        <section className="mt-4 grid grid-cols-3 gap-2">
+        <section className="mt-4 grid grid-cols-3 gap-2.5">
           <div className="rounded-xl border border-white/10 bg-[#0f0f0f] p-3 text-center">
             <Clock3 className="mx-auto h-4 w-4 text-[#d4ad5a]" />
             <p className="mt-1 text-[11px] text-white/70">Check-in</p>
-            <p className="text-xs font-semibold text-white">1:00 PM</p>
+            <p className="text-sm font-semibold text-white">1:00 PM</p>
           </div>
           <div className="rounded-xl border border-white/10 bg-[#0f0f0f] p-3 text-center">
             <CalendarClock className="mx-auto h-4 w-4 text-[#d4ad5a]" />
             <p className="mt-1 text-[11px] text-white/70">Check-out</p>
-            <p className="text-xs font-semibold text-white">11:00 AM</p>
+            <p className="text-sm font-semibold text-white">11:00 AM</p>
           </div>
           <a
             href="https://maps.app.goo.gl/C4MScoYMJLYnc3Gz6?g_st=ac"
@@ -201,87 +203,87 @@ export default function GuestPortalClient() {
           >
             <MapPin className="mx-auto h-4 w-4 text-[#d4ad5a]" />
             <p className="mt-1 text-[11px] text-white/70">Address</p>
-            <p className="text-[11px] font-semibold leading-tight text-white">Hotel Excella, Visalakshinagar, Vizag</p>
+            <p className="text-xs font-semibold leading-tight text-white">Hotel Excella, Vizag</p>
           </a>
         </section>
 
-        <section className="mt-4 grid grid-cols-4 gap-2">
+        <section className="mt-4 grid grid-cols-4 gap-2.5">
           <a
             href="tel:+917702483811"
-            className="rounded-xl border border-[#c8a45c]/35 bg-[#0f0f0f] p-2 text-center transition hover:border-[#d7b877]"
+            className="rounded-xl border border-[#c8a45c]/35 bg-[#0f0f0f] p-2.5 text-center transition hover:border-[#d7b877]"
           >
-            <Phone className="mx-auto h-4 w-4 text-[#d4ad5a]" />
-            <p className="mt-1 text-[11px] text-white/85">Reception</p>
+            <Phone className="mx-auto h-[18px] w-[18px] text-[#d4ad5a]" />
+            <p className="mt-1 text-xs text-white/85">Reception</p>
           </a>
           <a
             href="https://wa.me/919985908131"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border border-[#c8a45c]/35 bg-[#0f0f0f] p-2 text-center transition hover:border-[#d7b877]"
+            className="rounded-xl border border-[#c8a45c]/35 bg-[#0f0f0f] p-2.5 text-center transition hover:border-[#d7b877]"
           >
-            <Phone className="mx-auto h-4 w-4 text-[#d4ad5a]" />
-            <p className="mt-1 text-[11px] text-white/85">WhatsApp</p>
+            <MessageCircle className="mx-auto h-[18px] w-[18px] text-[#d4ad5a]" />
+            <p className="mt-1 text-xs text-white/85">WhatsApp</p>
           </a>
           <a
             href="https://maps.app.goo.gl/C4MScoYMJLYnc3Gz6?g_st=ac"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border border-[#c8a45c]/35 bg-[#0f0f0f] p-2 text-center transition hover:border-[#d7b877]"
+            className="rounded-xl border border-[#c8a45c]/35 bg-[#0f0f0f] p-2.5 text-center transition hover:border-[#d7b877]"
           >
-            <MapPin className="mx-auto h-4 w-4 text-[#d4ad5a]" />
-            <p className="mt-1 text-[11px] text-white/85">Google Maps</p>
+            <Navigation className="mx-auto h-[18px] w-[18px] text-[#d4ad5a]" />
+            <p className="mt-1 text-xs text-white/85">Google Maps</p>
           </a>
           <a
             href="https://www.instagram.com/hotelexcellavizag/"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border border-[#c8a45c]/35 bg-[#0f0f0f] p-2 text-center transition hover:border-[#d7b877]"
+            className="rounded-xl border border-[#c8a45c]/35 bg-[#0f0f0f] p-2.5 text-center transition hover:border-[#d7b877]"
           >
-            <Star className="mx-auto h-4 w-4 text-[#d4ad5a]" />
-            <p className="mt-1 text-[11px] text-white/85">Instagram</p>
+            <Instagram className="mx-auto h-[18px] w-[18px] text-[#d4ad5a]" />
+            <p className="mt-1 text-xs text-white/85">Instagram</p>
           </a>
         </section>
       </main>
 
       {activePopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/72 p-4 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="w-full max-w-md rounded-3xl border border-[#c8a45c]/70 bg-[#161616] p-6 text-white shadow-2xl animate-in zoom-in-95 duration-300">
+          <div className="w-full max-w-md rounded-3xl border border-[#d0ab63]/75 bg-[#f8f6f1] p-5 text-[#1d1a16] shadow-2xl animate-in zoom-in-95 duration-300">
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-xl font-semibold text-[#f5dca5]">
-                {activePopup === "payment" ? "Important Payment Notice" : "WiFi Access"}
+              <h3 className="font-serif text-[1.65rem] font-semibold text-[#1f1b16]">
+                {activePopup === "payment" ? "Payment Notice" : "WiFi Access"}
               </h3>
               <button
                 type="button"
                 aria-label="Close popup"
                 onClick={() => setActivePopup(null)}
-                className="rounded-full border border-white/10 p-1.5 text-white/70 transition hover:text-white"
+                className="rounded-full border border-black/15 p-1.5 text-black/65 transition hover:text-black"
               >
                 <X className="h-4 w-4" />
               </button>
             </div>
 
             {activePopup === "payment" ? (
-              <div className="space-y-4 text-sm text-white/85">
+              <div className="space-y-4 text-sm text-[#34302a]">
                 <p>
                   Please make payments only to authorized Hotel Excella payment channels or approved persons.
                 </p>
-                <div className="rounded-2xl border border-[#c8a45c]/35 bg-[#202020] p-4">
-                  <p className="mb-2 text-xs uppercase tracking-wide text-[#f0d18f]">Authorized</p>
+                <div className="rounded-2xl border border-[#d0ab63]/45 bg-white p-4">
+                  <p className="mb-2 text-xs uppercase tracking-wide text-[#ad8130]">Authorized Recipients</p>
                   <ul className="space-y-1.5">
                     <li>• Sanvi Group of Hotels QR</li>
                     <li>• Shobhan Kumar</li>
                     <li>• Nageswararao K</li>
                   </ul>
                 </div>
-                <p className="rounded-2xl border border-rose-400/35 bg-rose-400/10 p-3 text-rose-100">
+                <p className="rounded-2xl border border-rose-300/45 bg-rose-50 p-3 text-rose-800">
                   Payments made to unauthorized personal staff accounts may not be considered valid.
                 </p>
-                <p className="text-white/80">kindly contact Management before making payment</p>
+                <p className="text-[#4a433b]">Kindly contact management before making payment.</p>
                 <div className="grid grid-cols-2 gap-3 pt-1">
                   <button
                     type="button"
                     onClick={() => setActivePopup(null)}
-                    className="rounded-xl border border-white/15 px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/5"
+                    className="rounded-xl border border-black/15 px-4 py-3 text-sm font-semibold text-[#2b261f] transition hover:bg-black/[0.04]"
                   >
                     Understood
                   </button>
@@ -294,14 +296,14 @@ export default function GuestPortalClient() {
                 </div>
               </div>
             ) : (
-              <div className="space-y-4 text-sm text-white/85">
-                <div className="rounded-2xl border border-white/15 bg-[#202020] p-4">
-                  <p className="text-xs uppercase tracking-wide text-[#f0d18f]">Network Name</p>
-                  <p className="mt-1 font-semibold text-white">Hotel Excella</p>
+              <div className="space-y-4 text-sm text-[#34302a]">
+                <div className="rounded-2xl border border-[#d0ab63]/45 bg-white p-4">
+                  <p className="text-xs uppercase tracking-wide text-[#ad8130]">Network Name</p>
+                  <p className="mt-1 font-semibold text-[#1f1b16]">Hotel Excella</p>
                 </div>
-                <div className="rounded-2xl border border-white/15 bg-[#202020] p-4">
-                  <p className="text-xs uppercase tracking-wide text-[#f0d18f]">Password</p>
-                  <p className="mt-1 font-semibold text-white">Not Required</p>
+                <div className="rounded-2xl border border-[#d0ab63]/45 bg-white p-4">
+                  <p className="text-xs uppercase tracking-wide text-[#ad8130]">Password</p>
+                  <p className="mt-1 font-semibold text-[#1f1b16]">Not Required</p>
                 </div>
                 <p>Please contact reception if you face any issue while connecting.</p>
                 <button
