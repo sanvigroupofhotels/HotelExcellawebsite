@@ -75,35 +75,45 @@ Visakhapatnam
 
     if (resendApiKey) {
       // Send to hotel
-      await fetch("https://api.resend.com/emails", {
+      const hotelResponse = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${resendApiKey}`,
         },
         body: JSON.stringify({
-          from: "Hotel Excella <noreply@resend.dev>",
+          from: "Hotel Excella <onboarding@resend.dev>",
           to: ["hotelexcellavizag@gmail.com"],
           subject: hotelEmailSubject,
           text: hotelEmailBody,
         }),
       })
 
+      if (!hotelResponse.ok) {
+        const errorData = await hotelResponse.json()
+        console.error("Failed to send hotel email:", errorData)
+      }
+
       // Send confirmation to guest
       if (email) {
-        await fetch("https://api.resend.com/emails", {
+        const guestResponse = await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${resendApiKey}`,
           },
           body: JSON.stringify({
-            from: "Hotel Excella <noreply@resend.dev>",
+            from: "Hotel Excella <onboarding@resend.dev>",
             to: [email],
             subject: guestEmailSubject,
             text: guestEmailBody,
           }),
         })
+
+        if (!guestResponse.ok) {
+          const errorData = await guestResponse.json()
+          console.error("Failed to send guest email:", errorData)
+        }
       }
     } else {
       // Log for development

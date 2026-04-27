@@ -36,7 +36,7 @@ This feedback was submitted via the Hotel Excella website review page.
           Authorization: `Bearer ${resendApiKey}`,
         },
         body: JSON.stringify({
-          from: "Hotel Excella <noreply@resend.dev>",
+          from: "Hotel Excella <onboarding@resend.dev>",
           to: ["hotelexcellavizag@gmail.com"],
           subject: emailSubject,
           text: emailBody,
@@ -44,7 +44,8 @@ This feedback was submitted via the Hotel Excella website review page.
       })
 
       if (!response.ok) {
-        console.error("Failed to send email via Resend")
+        const errorData = await response.json()
+        console.error("Failed to send email via Resend:", errorData)
       }
     } else {
       // Log the feedback for development
