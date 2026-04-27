@@ -1,0 +1,52 @@
+"use client"
+
+import { Phone, MessageCircle, Calendar } from "lucide-react"
+
+export function StickyCTA() {
+  return (
+    <>
+      {/* Mobile Sticky Bottom Bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-card/95 backdrop-blur-md border-t border-border">
+        <div className="grid grid-cols-3 divide-x divide-border">
+          <a
+            href="https://hotelexcella.bookmystay.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center justify-center py-3 text-primary hover:bg-secondary transition-colors"
+          >
+            <Calendar className="h-5 w-5" />
+            <span className="mt-1 text-xs font-medium">Book</span>
+          </a>
+          <a
+            href="tel:+919985908131"
+            className="flex flex-col items-center justify-center py-3 text-foreground hover:bg-secondary transition-colors"
+          >
+            <Phone className="h-5 w-5" />
+            <span className="mt-1 text-xs font-medium">Call</span>
+          </a>
+          <a
+            href="https://wa.me/919985908131"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center justify-center py-3 text-green-500 hover:bg-secondary transition-colors"
+          >
+            <MessageCircle className="h-5 w-5" />
+            <span className="mt-1 text-xs font-medium">WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Desktop Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/919985908131"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden lg:flex fixed bottom-6 right-6 z-40 items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+        aria-label="Chat on WhatsApp"
+      >
+        <MessageCircle className="h-5 w-5" />
+        <span className="font-medium">Chat with us</span>
+      </a>
+    </>
+  )
+}
