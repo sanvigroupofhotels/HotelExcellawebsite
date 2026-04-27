@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -27,6 +27,26 @@ export default function ReviewPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isFeedbackSuccessModalOpen, setIsFeedbackSuccessModalOpen] = useState(false)
   const [isHighRatingModalOpen, setIsHighRatingModalOpen] = useState(false)
+  const [showReminderCard, setShowReminderCard] = useState(false)
+
+  useEffect(() => {
+    const firstVisitKey = "review-page-first-visit"
+    const now = Date.now()
+    const savedFirstVisit = window.localStorage.getItem(firstVisitKey)
+
+    if (!savedFirstVisit) {
+      window.localStorage.setItem(firstVisitKey, String(now))
+    }
+
+    const visitTime = savedFirstVisit ? Number(savedFirstVisit) : now
+    const hoursSinceFirstVisit = (now - visitTime) / (1000 * 60 * 60)
+    const hour = new Date().getHours()
+    const isEvening = hour >= 18
+
+    if (hoursSinceFirstVisit >= 3 || isEvening) {
+      setShowReminderCard(true)
+    }
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -78,8 +98,11 @@ export default function ReviewPage() {
               How was your stay at{" "}
               <span className="text-primary">Hotel Excella</span>?
             </h1>
+            <p className="mt-4 text-xl font-medium text-foreground">
+              Enjoying your stay with us?
+            </p>
             <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto text-pretty">
-              Your feedback helps us serve you better
+              Your feedback means a lot to our team 💛
             </p>
           </div>
         </section>
@@ -87,6 +110,14 @@ export default function ReviewPage() {
         {/* Rating Section */}
         <section className="py-16 lg:py-24">
           <div className="mx-auto max-w-2xl px-4">
+            {showReminderCard && !rating && (
+              <div className="mb-8 rounded-xl border border-primary/35 bg-primary/10 p-4 text-center">
+                <p className="text-sm font-medium text-foreground">Review Reminder</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  If you enjoyed your stay, a quick rating helps our team grow.
+                </p>
+              </div>
+            )}
             {!rating ? (
               <div className="text-center">
                 <p className="text-lg font-medium text-foreground mb-8">
@@ -341,10 +372,10 @@ export default function ReviewPage() {
           </button>
           <DialogHeader className="space-y-4">
             <DialogTitle className="text-center font-serif text-2xl text-primary">
-              We&apos;re delighted you enjoyed your stay.
+              We&apos;re glad you had a great stay!
             </DialogTitle>
             <DialogDescription className="text-center text-base text-zinc-300">
-              Thank you for your support. Please share your experience on Google.
+              It would really help us if you could share your experience on Google.
             </DialogDescription>
           </DialogHeader>
           <button
@@ -354,7 +385,7 @@ export default function ReviewPage() {
             }}
             className="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-3 font-semibold text-primary-foreground transition-all hover:bg-primary/90"
           >
-            Leave Google Review
+            Leave Review
           </button>
         </DialogContent>
       </Dialog>
