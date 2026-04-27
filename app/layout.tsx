@@ -78,7 +78,7 @@ export default function RootLayout({
                 "addressCountry": "IN"
               },
               "telephone": "+91-9985908131",
-              "email": "hotelexcellavizag@gmail.com",
+              "email": "sanvigroupofhotels@gmail.com",
               "url": "https://hotelexcella.com",
               "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png",
               "priceRange": "$$",

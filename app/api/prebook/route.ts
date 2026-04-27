@@ -61,7 +61,7 @@ Our team will contact you shortly to confirm availability and complete your book
 For immediate assistance, please contact us:
 Phone: +91 99859 08131 / +91 89594 44555
 WhatsApp: +91 99859 08131
-Email: hotelexcellavizag@gmail.com
+Email: sanvigroupofhotels@gmail.com
 
 We look forward to hosting you!
 
@@ -83,7 +83,7 @@ Visakhapatnam
         },
         body: JSON.stringify({
           from: "Hotel Excella <noreply@resend.dev>",
-          to: ["hotelexcellavizag@gmail.com"],
+          to: ["sanvigroupofhotels@gmail.com"],
           subject: hotelEmailSubject,
           text: hotelEmailBody,
         }),

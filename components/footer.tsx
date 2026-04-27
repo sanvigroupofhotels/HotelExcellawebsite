@@ -95,11 +95,11 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:hotelexcellavizag@gmail.com"
+                  href="mailto:sanvigroupofhotels@gmail.com"
                   className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail className="h-4 w-4 mt-0.5 shrink-0" />
-                  <span>hotelexcellavizag@gmail.com</span>
+                  <span>sanvigroupofhotels@gmail.com</span>
                 </a>
               </li>
             </ul>

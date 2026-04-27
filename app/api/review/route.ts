@@ -37,7 +37,7 @@ This feedback was submitted via the Hotel Excella website review page.
         },
         body: JSON.stringify({
           from: "Hotel Excella <noreply@resend.dev>",
-          to: ["hotelexcellavizag@gmail.com"],
+          to: ["sanvigroupofhotels@gmail.com"],
           subject: emailSubject,
           text: emailBody,
         }),

@@ -45,7 +45,7 @@ const contactMethods = [
     title: "Email",
     description: "Send us your queries anytime",
     details: [
-      { label: "hotelexcellavizag@gmail.com", href: "mailto:hotelexcellavizag@gmail.com" },
+      { label: "sanvigroupofhotels@gmail.com", href: "mailto:sanvigroupofhotels@gmail.com" },
     ],
     primary: false,
   },
