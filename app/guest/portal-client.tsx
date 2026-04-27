@@ -9,9 +9,8 @@ import {
   ChevronRight,
   Clock3,
   Instagram,
+  Linkedin,
   MapPin,
-  MessageCircle,
-  Navigation,
   Phone,
   ShieldCheck,
   Star,
@@ -49,10 +48,23 @@ export default function GuestPortalClient() {
   const quickActions: QuickAction[] = useMemo(
     () => [
       {
+        icon: Star,
+        title: "Review Us",
+        description: "Share your experience",
+        href: "/review",
+      },
+      {
         icon: Wifi,
         title: "WiFi Access",
         description: "Connect to our internet",
         onClick: () => setActivePopup("wifi"),
+      },
+      {
+        icon: UtensilsCrossed,
+        title: "Food Menu",
+        description: "Browse dining options",
+        href: "https://hotelexcellafoodmenu.netlify.app/",
+        external: true,
       },
       {
         icon: BedDouble,
@@ -64,7 +76,7 @@ export default function GuestPortalClient() {
       {
         icon: Phone,
         title: "Reception Help",
-        description: "Connect with front desk",
+        description: "Dial 9 from landline or call mobile",
         href: "tel:+917702483811",
       },
       {
@@ -72,20 +84,6 @@ export default function GuestPortalClient() {
         title: "Report an Issue",
         description: "We're here to help",
         href: "https://wa.me/919985908131?text=Hi%2C%20I%20am%20a%20guest%20at%20Hotel%20Excella%20and%20I%20would%20like%20to%20report%20an%20issue.",
-        external: true,
-      },
-      {
-        icon: UtensilsCrossed,
-        title: "Food Menu",
-        description: "Browse dining options",
-        href: "https://hotelexcellafoodmenu.netlify.app/",
-        external: true,
-      },
-      {
-        icon: Star,
-        title: "Review Us",
-        description: "Share your experience",
-        href: "https://search.google.com/local/writereview?placeid=ChIJH-C8eTZbOToRDi7ckoJipcQ",
         external: true,
       },
     ],
@@ -96,31 +94,41 @@ export default function GuestPortalClient() {
     <div className="min-h-screen bg-[#060606] text-white">
       <main className="mx-auto w-full max-w-[430px] px-4 pb-8 pt-4 sm:px-5">
         <section className="rounded-[28px] border border-[#c8a45c]/45 bg-gradient-to-b from-[#0d0d0d] via-[#090909] to-[#060606] p-4 shadow-[0_26px_60px_-38px_rgba(214,174,90,0.88)]">
-          <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
-            alt="Hotel Excella Logo"
-            width={140}
-            height={70}
-            className="mx-auto h-auto w-[118px]"
-            priority
-          />
-
-          <div className="relative mt-4 overflow-hidden rounded-[22px] border border-[#c8a45c]/55 bg-[#090909]">
+          <div className="relative overflow-hidden rounded-[22px] border border-[#c8a45c]/55 bg-[#090909]">
             <img
-              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=80"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png"
               alt="Hotel Excella exterior"
-              className="h-[230px] w-full object-cover object-center"
+              className="h-[560px] w-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/60" />
-          </div>
-
-          <div className="mt-5 px-1 text-left">
-            <p className="text-[15px] tracking-wide text-[#d7bf8a]">Welcome to Hotel Excella</p>
-            <h1 className="mt-1 font-serif text-[2.02rem] font-semibold leading-[1.1] tracking-[0.01em] text-white">
-              Hotel Excella
-            </h1>
-            <p className="mt-2 text-[1.04rem] leading-snug text-[#f5efe3]">We are delighted to have you with us.</p>
-            <p className="mt-2 text-sm text-white/82">Quick Services at your fingertips</p>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/82" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
+                alt="Hotel Excella Logo"
+                width={160}
+                height={80}
+                className="h-auto w-[126px]"
+                priority
+              />
+              <p className="mt-6 text-[18px] font-semibold tracking-wide text-white">Welcome to</p>
+              <h1 className="mt-1 font-serif text-[3rem] font-semibold leading-[0.96] tracking-[0.01em] text-[#d7b35f]">
+                Hotel Excella
+              </h1>
+              <p className="mt-6 text-[1.05rem] font-medium leading-[1.25] text-[#d7b35f]">
+                Premium comfort in the heart of Vizag.
+              </p>
+              <p className="mt-4 text-[0.95rem] leading-[1.45] text-white/82">
+                A stay designed with comfort, cleanliness and convenience in mind.
+              </p>
+              <a
+                href="https://hotelexcella.bookmystay.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex w-full max-w-[340px] items-center justify-center rounded-2xl border border-[#d7b877] bg-[#c8a45c] px-6 py-3.5 text-xl font-semibold text-black transition hover:bg-[#d7b877]"
+              >
+                Book Now
+              </a>
+            </div>
           </div>
         </section>
 
@@ -207,42 +215,30 @@ export default function GuestPortalClient() {
           </a>
         </section>
 
-        <section className="mt-4 grid grid-cols-4 gap-2.5">
-          <a
-            href="tel:+917702483811"
-            className="rounded-xl border border-[#c8a45c]/35 bg-[#0f0f0f] p-2.5 text-center transition hover:border-[#d7b877]"
-          >
-            <Phone className="mx-auto h-[18px] w-[18px] text-[#d4ad5a]" />
-            <p className="mt-1 text-xs text-white/85">Reception</p>
-          </a>
-          <a
-            href="https://wa.me/919985908131"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-xl border border-[#c8a45c]/35 bg-[#0f0f0f] p-2.5 text-center transition hover:border-[#d7b877]"
-          >
-            <MessageCircle className="mx-auto h-[18px] w-[18px] text-[#d4ad5a]" />
-            <p className="mt-1 text-xs text-white/85">WhatsApp</p>
-          </a>
-          <a
-            href="https://maps.app.goo.gl/C4MScoYMJLYnc3Gz6?g_st=ac"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-xl border border-[#c8a45c]/35 bg-[#0f0f0f] p-2.5 text-center transition hover:border-[#d7b877]"
-          >
-            <Navigation className="mx-auto h-[18px] w-[18px] text-[#d4ad5a]" />
-            <p className="mt-1 text-xs text-white/85">Google Maps</p>
-          </a>
-          <a
-            href="https://www.instagram.com/hotelexcellavizag/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-xl border border-[#c8a45c]/35 bg-[#0f0f0f] p-2.5 text-center transition hover:border-[#d7b877]"
-          >
-            <Instagram className="mx-auto h-[18px] w-[18px] text-[#d4ad5a]" />
-            <p className="mt-1 text-xs text-white/85">Instagram</p>
-          </a>
+        <section className="mt-4 rounded-2xl border border-[#c8a45c]/35 bg-[#0f0f0f] px-4 py-3.5 text-center">
+          <p className="text-sm tracking-wide text-[#d7bf8a]">Follow us at</p>
+          <div className="mt-3 flex items-center justify-center gap-3">
+            <a
+              href="https://www.instagram.com/hotelexcella_vizag"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow Hotel Excella on Instagram"
+              className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
+            >
+              <Instagram className="h-[18px] w-[18px]" />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/sanvigroupofhotels-vizag/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow Hotel Excella on LinkedIn"
+              className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
+            >
+              <Linkedin className="h-[18px] w-[18px]" />
+            </a>
+          </div>
         </section>
+
       </main>
 
       {activePopup && (
