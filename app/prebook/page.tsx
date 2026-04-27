@@ -1,0 +1,427 @@
+"use client"
+
+import { useState } from "react"
+import Image from "next/image"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+import { StickyCTA } from "@/components/sticky-cta"
+import {
+  Calendar,
+  User,
+  Phone,
+  Mail,
+  Users,
+  Bed,
+  MessageSquare,
+  CheckCircle,
+  ArrowRight,
+  Loader2,
+} from "lucide-react"
+
+export default function PrebookPage() {
+  const [formData, setFormData] = useState({
+    guestName: "",
+    mobile: "",
+    email: "",
+    checkIn: "",
+    checkOut: "",
+    adults: "2",
+    children: "0",
+    roomPreference: "Queen Executive Room",
+    specialRequests: "",
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch("/api/prebook", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        setIsSubmitted(true)
+        // Redirect to booking engine after 2.5 seconds
+        setTimeout(() => {
+          window.location.href = "https://hotelexcella.bookmystay.io/"
+        }, 2500)
+      }
+    } catch (error) {
+      console.error("Error submitting booking request:", error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  // Get today's date for min date on inputs
+  const today = new Date().toISOString().split("T")[0]
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+
+      <main className="pt-20">
+        {/* Hero Section */}
+        <section className="bg-card border-b border-border py-12 lg:py-16">
+          <div className="mx-auto max-w-7xl px-4 text-center">
+            <h1 className="font-serif text-3xl font-bold text-foreground lg:text-5xl text-balance">
+              Check <span className="text-primary">Availability</span>
+            </h1>
+            <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto text-pretty">
+              Submit your booking request and we&apos;ll confirm availability instantly
+            </p>
+          </div>
+        </section>
+
+        {/* Booking Form Section */}
+        <section className="py-12 lg:py-20">
+          <div className="mx-auto max-w-3xl px-4">
+            {isSubmitted ? (
+              /* Success Message */
+              <div className="text-center py-12">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-6">
+                  <CheckCircle className="h-10 w-10 text-primary" />
+                </div>
+                <h2 className="font-serif text-2xl font-bold text-foreground lg:text-3xl">
+                  Booking Request Received!
+                </h2>
+                <p className="mt-4 text-lg text-muted-foreground">
+                  Thank you for your booking request. Our team will contact you shortly.
+                </p>
+                <p className="mt-2 text-muted-foreground">
+                  Redirecting you to complete your booking...
+                </p>
+                <div className="mt-6 flex items-center justify-center gap-2 text-primary">
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                  <span className="font-medium">Please wait</span>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-8">
+                {/* Guest Details */}
+                <div className="bg-card rounded-2xl border border-border p-6 lg:p-8">
+                  <h2 className="font-serif text-xl font-bold text-foreground mb-6 flex items-center gap-2">
+                    <User className="h-5 w-5 text-primary" />
+                    Guest Details
+                  </h2>
+
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    <div className="sm:col-span-2">
+                      <label
+                        htmlFor="guestName"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        Guest Name <span className="text-destructive">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="guestName"
+                        required
+                        value={formData.guestName}
+                        onChange={(e) =>
+                          setFormData({ ...formData, guestName: e.target.value })
+                        }
+                        className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                        placeholder="Full name as per ID"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="mobile"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        <Phone className="h-4 w-4 inline mr-1" />
+                        Mobile Number <span className="text-destructive">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        id="mobile"
+                        required
+                        value={formData.mobile}
+                        onChange={(e) =>
+                          setFormData({ ...formData, mobile: e.target.value })
+                        }
+                        className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                        placeholder="+91 XXXXX XXXXX"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        <Mail className="h-4 w-4 inline mr-1" />
+                        Email <span className="text-destructive">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
+                        className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Booking Details */}
+                <div className="bg-card rounded-2xl border border-border p-6 lg:p-8">
+                  <h2 className="font-serif text-xl font-bold text-foreground mb-6 flex items-center gap-2">
+                    <Calendar className="h-5 w-5 text-primary" />
+                    Booking Details
+                  </h2>
+
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    <div>
+                      <label
+                        htmlFor="checkIn"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        Check-in Date <span className="text-destructive">*</span>
+                      </label>
+                      <input
+                        type="date"
+                        id="checkIn"
+                        required
+                        min={today}
+                        value={formData.checkIn}
+                        onChange={(e) =>
+                          setFormData({ ...formData, checkIn: e.target.value })
+                        }
+                        className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="checkOut"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        Check-out Date <span className="text-destructive">*</span>
+                      </label>
+                      <input
+                        type="date"
+                        id="checkOut"
+                        required
+                        min={formData.checkIn || today}
+                        value={formData.checkOut}
+                        onChange={(e) =>
+                          setFormData({ ...formData, checkOut: e.target.value })
+                        }
+                        className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="adults"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        <Users className="h-4 w-4 inline mr-1" />
+                        Adults <span className="text-destructive">*</span>
+                      </label>
+                      <select
+                        id="adults"
+                        required
+                        value={formData.adults}
+                        onChange={(e) =>
+                          setFormData({ ...formData, adults: e.target.value })
+                        }
+                        className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                      >
+                        {[1, 2, 3, 4, 5, 6].map((num) => (
+                          <option key={num} value={num}>
+                            {num} {num === 1 ? "Adult" : "Adults"}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="children"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        Children
+                      </label>
+                      <select
+                        id="children"
+                        value={formData.children}
+                        onChange={(e) =>
+                          setFormData({ ...formData, children: e.target.value })
+                        }
+                        className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                      >
+                        {[0, 1, 2, 3, 4].map((num) => (
+                          <option key={num} value={num}>
+                            {num} {num === 1 ? "Child" : "Children"}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <label
+                        htmlFor="roomPreference"
+                        className="block text-sm font-medium text-foreground mb-2"
+                      >
+                        <Bed className="h-4 w-4 inline mr-1" />
+                        Room Preference <span className="text-destructive">*</span>
+                      </label>
+                      <select
+                        id="roomPreference"
+                        required
+                        value={formData.roomPreference}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            roomPreference: e.target.value,
+                          })
+                        }
+                        className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                      >
+                        <option value="Queen Executive Room">
+                          Queen Executive Room
+                        </option>
+                        <option value="King Executive Room">
+                          King Executive Room
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Special Requests */}
+                <div className="bg-card rounded-2xl border border-border p-6 lg:p-8">
+                  <h2 className="font-serif text-xl font-bold text-foreground mb-6 flex items-center gap-2">
+                    <MessageSquare className="h-5 w-5 text-primary" />
+                    Special Requests
+                  </h2>
+
+                  <div>
+                    <label
+                      htmlFor="specialRequests"
+                      className="block text-sm font-medium text-foreground mb-2"
+                    >
+                      Any special requests or preferences?
+                    </label>
+                    <textarea
+                      id="specialRequests"
+                      rows={4}
+                      value={formData.specialRequests}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          specialRequests: e.target.value,
+                        })
+                      }
+                      className="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary resize-none"
+                      placeholder="e.g., Early check-in, airport pickup, extra bed, anniversary decoration..."
+                    />
+                  </div>
+                </div>
+
+                {/* What&apos;s Included */}
+                <div className="bg-primary/10 rounded-2xl border border-primary/20 p-6">
+                  <p className="text-sm font-medium text-primary mb-3">
+                    All bookings include:
+                  </p>
+                  <div className="grid grid-cols-2 gap-2 text-sm text-foreground">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4 text-primary" />
+                      Free Wi-Fi
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4 text-primary" />
+                      24 Hours Reception
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4 text-primary" />
+                      Clean Rooms
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4 text-primary" />
+                      Daily Housekeeping
+                    </div>
+                  </div>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="h-5 w-5 animate-spin" />
+                      Processing...
+                    </>
+                  ) : (
+                    <>
+                      Check Availability
+                      <ArrowRight className="h-5 w-5" />
+                    </>
+                  )}
+                </button>
+
+                <p className="text-center text-sm text-muted-foreground">
+                  By submitting, you&apos;ll be redirected to complete your booking
+                </p>
+              </form>
+            )}
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="py-12 lg:py-16 bg-card border-t border-border">
+          <div className="mx-auto max-w-4xl px-4 text-center">
+            <h2 className="font-serif text-2xl font-bold text-foreground">
+              Need Help Booking?
+            </h2>
+            <p className="mt-2 text-muted-foreground">
+              Our team is available 24/7 to assist you
+            </p>
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="tel:+919985908131"
+                className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+              >
+                <Phone className="h-5 w-5" />
+                +91 99859 08131
+              </a>
+              <span className="hidden sm:inline text-border">|</span>
+              <a
+                href="https://wa.me/919985908131"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-green-500 hover:text-green-400 transition-colors"
+              >
+                <MessageSquare className="h-5 w-5" />
+                WhatsApp Us
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+      <StickyCTA />
+
+      <div className="h-16 lg:hidden" />
+    </div>
+  )
+}

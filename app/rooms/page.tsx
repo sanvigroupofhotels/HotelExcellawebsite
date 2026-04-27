@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { StickyCTA } from "@/components/sticky-cta"
@@ -177,15 +178,24 @@ export default function RoomsPage() {
             <p className="mt-4 text-lg text-muted-foreground text-pretty">
               Direct booking guarantees the best rates and instant confirmation.
             </p>
-            <a
-              href="https://hotelexcella.bookmystay.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105"
-            >
-              Check Availability
-              <ArrowRight className="h-5 w-5" />
-            </a>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="https://hotelexcella.bookmystay.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105"
+              >
+                Book Now
+                <ArrowRight className="h-5 w-5" />
+              </a>
+              <Link
+                href="/prebook"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg border border-primary px-8 py-4 text-lg font-semibold text-primary hover:bg-primary/10 transition-all duration-300"
+              >
+                Check Availability
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
           </div>
         </section>
       </main>

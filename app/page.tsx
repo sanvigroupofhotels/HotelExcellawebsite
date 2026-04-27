@@ -15,7 +15,8 @@ import {
   Phone,
   MessageCircle,
   ArrowRight,
-  Star
+  Star,
+  ClipboardCheck
 } from "lucide-react"
 
 const trustBadges = [
@@ -99,13 +100,13 @@ export default function HomePage() {
                   <Calendar className="h-5 w-5" />
                   Book Now
                 </a>
-                <a
-                  href="tel:+919985908131"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-8 py-4 text-lg font-semibold text-secondary-foreground border border-border hover:bg-secondary/80 transition-all duration-300"
+                <Link
+                  href="/prebook"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-8 py-4 text-lg font-semibold text-secondary-foreground border border-primary hover:bg-primary/10 transition-all duration-300"
                 >
-                  <Phone className="h-5 w-5" />
-                  Call Now
-                </a>
+                  <ClipboardCheck className="h-5 w-5" />
+                  Check Availability
+                </Link>
                 <a
                   href="https://wa.me/919985908131"
                   target="_blank"
@@ -336,6 +337,13 @@ export default function HomePage() {
                 <Calendar className="h-5 w-5" />
                 Book Your Stay
               </a>
+              <Link
+                href="/prebook"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg border border-primary px-8 py-4 text-lg font-semibold text-primary hover:bg-primary/10 transition-all duration-300"
+              >
+                <ClipboardCheck className="h-5 w-5" />
+                Check Availability
+              </Link>
               <a
                 href="https://wa.me/919985908131"
                 target="_blank"

@@ -12,6 +12,7 @@ const navigation = [
   { name: "Amenities", href: "/amenities" },
   { name: "Location", href: "/location" },
   { name: "Contact", href: "/contact" },
+  { name: "Review Us", href: "/review" },
 ]
 
 export function Header() {
@@ -65,6 +66,12 @@ export function Header() {
             <Phone className="h-4 w-4" />
             <span>+91 99859 08131</span>
           </a>
+          <Link
+            href="/prebook"
+            className="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary hover:bg-primary/10 transition-all duration-200"
+          >
+            Check Availability
+          </Link>
           <a
             href="https://hotelexcella.bookmystay.io/"
             target="_blank"
@@ -122,6 +129,13 @@ export function Header() {
                   <Phone className="h-5 w-5 text-primary" />
                   <span>+91 99859 08131</span>
                 </a>
+                <Link
+                  href="/prebook"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block w-full rounded-lg border border-primary px-4 py-3 text-center text-base font-semibold text-primary"
+                >
+                  Check Availability
+                </Link>
                 <a
                   href="https://hotelexcella.bookmystay.io/"
                   target="_blank"

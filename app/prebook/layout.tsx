@@ -1,0 +1,30 @@
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Check Availability | Hotel Excella Vizag Direct Booking",
+  description: "Check room availability and book directly at Hotel Excella Vizag. Best rates guaranteed with instant confirmation. Queen and King Executive rooms available.",
+  openGraph: {
+    title: "Check Availability | Hotel Excella Vizag Direct Booking",
+    description: "Check room availability and book directly at Hotel Excella Vizag. Best rates guaranteed with instant confirmation.",
+    url: "https://hotelexcella.com/prebook",
+    siteName: "Hotel Excella",
+    images: [
+      {
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png",
+        width: 1200,
+        height: 630,
+        alt: "Hotel Excella Vizag - Book Direct",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+}
+
+export default function PrebookLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return children
+}

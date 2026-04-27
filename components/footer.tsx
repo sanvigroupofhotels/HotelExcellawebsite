@@ -5,10 +5,12 @@ import { MapPin, Phone, Mail, Instagram, Linkedin } from "lucide-react"
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Rooms", href: "/rooms" },
+  { name: "Check Availability", href: "/prebook" },
   { name: "Gallery", href: "/gallery" },
   { name: "Amenities", href: "/amenities" },
   { name: "Location", href: "/location" },
   { name: "Contact", href: "/contact" },
+  { name: "Review Us", href: "/review" },
 ]
 
 export function Footer() {
