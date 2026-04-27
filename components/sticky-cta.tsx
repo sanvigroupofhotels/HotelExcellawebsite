@@ -25,9 +25,7 @@ export function StickyCTA({ guestMode = false, onAlertClick }: StickyCTAProps) {
           </a>
           {guestMode ? (
             <a
-              href="https://hotelexcellafoodmenu.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/orderfood"
               className="flex flex-col items-center justify-center py-3 text-white transition-colors hover:bg-[#141414]"
             >
               <UtensilsCrossed className="h-5 w-5" />
