@@ -193,7 +193,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-card py-16 lg:py-24">
+        <section className="bg-card py-12 lg:py-16">
           <div className="mx-auto max-w-7xl px-4">
             <div className="text-center">
               <h2 className="font-serif text-3xl font-bold text-foreground lg:text-4xl">
@@ -238,7 +238,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="pt-16">
+        <section className="pt-8 lg:pt-10">
           <div className="mx-auto max-w-7xl px-4 text-center">
             <h2 className="font-serif text-3xl font-bold text-foreground lg:text-4xl">
               Experience <span className="text-primary">Hotel Excella</span>
@@ -247,7 +247,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="py-12 lg:py-16">
+        <section className="pt-6 pb-10 lg:pt-8 lg:pb-12">
           <div className="mx-auto max-w-7xl px-4">
             <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
               {galleryImages.map((image) => (
@@ -277,7 +277,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-card py-16 lg:py-24">
+        <section className="bg-card py-12 lg:py-16">
           <div className="mx-auto max-w-4xl px-4 text-center">
             <h2 className="text-balance font-serif text-3xl font-bold text-foreground lg:text-4xl">
               Ready for a <span className="text-primary">Premium Stay</span> in Vizag?
