@@ -105,9 +105,9 @@ export default function GuestPortalClient() {
             <Image
               src="/orderfood/data/images/logo.png"
               alt="Hotel Excella Logo"
-              width={180}
-              height={90}
-              className="h-auto w-[122px] drop-shadow-[0_0_16px_rgba(0,0,0,0.45)] sm:w-[142px]"
+              width={125}
+              height={65}
+              className="h-auto w-[122px] drop-shadow-[0_0_16px_rgba(0,0,0,0.45)] sm:w-[100px]"
               priority
             />
             <h1 className="mt-8 font-serif text-[2rem] font-semibold leading-[1.08] tracking-[0.01em] text-[#d7b35f] sm:mt-9 sm:text-[2.35rem]">
