@@ -12,6 +12,7 @@ import {
   Instagram,
   Linkedin,
   MapPin,
+  Menu,
   Phone,
   ShieldCheck,
   Star,
@@ -35,6 +36,7 @@ const PAYMENT_NOTICE_KEY = "guest-payment-notice-date"
 
 export default function GuestPortalClient() {
   const [activePopup, setActivePopup] = useState<PopupType>(null)
+  const [isGuestMenuOpen, setIsGuestMenuOpen] = useState(false)
 
   useEffect(() => {
     const today = new Date().toISOString().slice(0, 10)
@@ -90,10 +92,80 @@ export default function GuestPortalClient() {
     [],
   )
 
+  useEffect(() => {
+    if (!isGuestMenuOpen) {
+      document.body.style.overflow = ""
+      return
+    }
+
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isGuestMenuOpen])
+
   return (
     <div className="min-h-screen bg-[#060606] text-white">
+      <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-4 py-3 sm:hidden">
+        <Link href="/" className="text-sm font-semibold tracking-wide text-[#e2c277]">
+          Hotel Excella
+        </Link>
+        <button
+          type="button"
+          aria-expanded={isGuestMenuOpen}
+          aria-controls="guest-mobile-menu"
+          aria-label={isGuestMenuOpen ? "Close guest menu" : "Open guest menu"}
+          onClick={() => setIsGuestMenuOpen((open) => !open)}
+          className="rounded-md border border-[#d4ad5a]/60 bg-black/50 p-2 text-[#d4ad5a] backdrop-blur-sm"
+        >
+          {isGuestMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+      </div>
+
+      <div className={`sm:hidden ${isGuestMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`} aria-hidden={!isGuestMenuOpen}>
+        <button
+          type="button"
+          onClick={() => setIsGuestMenuOpen(false)}
+          aria-label="Close guest menu overlay"
+          className={`fixed inset-0 z-[55] bg-black/65 transition-opacity duration-300 ${isGuestMenuOpen ? "opacity-100" : "opacity-0"}`}
+        />
+        <aside
+          id="guest-mobile-menu"
+          className={`fixed inset-y-0 right-0 z-[60] w-[86vw] max-w-xs overflow-y-auto border-l border-[#d4ad5a]/30 bg-[#090909] p-5 transition-transform duration-300 ease-out ${isGuestMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+        >
+          <div className="mb-5 flex items-center justify-between">
+            <p className="font-serif text-lg text-[#d7b35f]">Guest Menu</p>
+            <button type="button" onClick={() => setIsGuestMenuOpen(false)} className="rounded-md p-2 text-[#d4ad5a]">
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+          <nav className="space-y-2">
+            <Link href="/guest" className="block rounded-lg border border-white/10 px-3 py-2 text-sm font-medium text-white/90">
+              Guest Portal
+            </Link>
+            <Link href="/review" className="block rounded-lg border border-white/10 px-3 py-2 text-sm font-medium text-white/90">
+              Review Us
+            </Link>
+            <Link href="/orderfood" className="block rounded-lg border border-white/10 px-3 py-2 text-sm font-medium text-white/90">
+              Food Menu
+            </Link>
+            <Link href="/prebook" className="block rounded-lg border border-white/10 px-3 py-2 text-sm font-medium text-white/90">
+              Enquiry
+            </Link>
+            <a
+              href="https://hotelexcella.bookmystay.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-lg border border-[#d4ad5a]/40 px-3 py-2 text-sm font-semibold text-[#d4ad5a]"
+            >
+              Check Availability
+            </a>
+          </nav>
+        </aside>
+      </div>
+
       <main className="w-full pb-28">
-       <section className="relative flex min-h-[48svh] items-start justify-center overflow-hidden pt-3 sm:min-h-[52svh] sm:pt-4">
+       <section className="relative flex min-h-[48svh] items-start justify-center overflow-hidden pt-16 sm:min-h-[52svh] sm:pt-4">
   <img
     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png"
     alt="Hotel Excella exterior"

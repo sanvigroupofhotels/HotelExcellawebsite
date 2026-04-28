@@ -47,10 +47,10 @@ export function Header() {
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-main-menu"
             aria-label={mobileMenuOpen ? "Close main menu" : "Open main menu"}
-            onClick={() => setMobileMenuOpen(true)}
+            onClick={() => setMobileMenuOpen((open) => !open)}
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground"
           >
-            <Menu className="h-6 w-6" aria-hidden="true" />
+            {mobileMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
           </button>
         </div>
 
@@ -91,14 +91,21 @@ export function Header() {
         </div>
       </nav>
 
-      {mobileMenuOpen && (
-        <div className="lg:hidden">
-          <button type="button" aria-label="Close menu overlay" onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 z-[60] bg-black/35" />
+      <div
+        className={`lg:hidden ${mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+        aria-hidden={!mobileMenuOpen}
+      >
+        <button
+          type="button"
+          aria-label="Close menu overlay"
+          onClick={() => setMobileMenuOpen(false)}
+          className={`fixed inset-0 z-[60] bg-black/35 transition-opacity duration-300 ${mobileMenuOpen ? "opacity-100" : "opacity-0"}`}
+        />
 
-          <div
-            id="mobile-main-menu"
-            className="fixed inset-y-0 right-0 z-[70] w-full max-w-sm overflow-y-auto bg-background px-6 py-6 shadow-xl ring-1 ring-border animate-in slide-in-from-right duration-200"
-          >
+        <div
+          id="mobile-main-menu"
+          className={`fixed inset-y-0 right-0 z-[70] w-full max-w-sm overflow-y-auto bg-background px-6 py-6 shadow-xl ring-1 ring-border transition-transform duration-300 ease-out ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+        >
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
                 <span className="sr-only">Hotel Excella</span>
@@ -152,9 +159,8 @@ export function Header() {
                 </div>
               </div>
             </div>
-          </div>
         </div>
-      )}
+      </div>
     </header>
   )
 }
