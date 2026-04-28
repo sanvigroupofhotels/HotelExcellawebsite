@@ -25,14 +25,7 @@ export function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
             <span className="sr-only">Hotel Excella</span>
-            <Image
-              src={logoImage}
-              alt="Hotel Excella Logo"
-              width={120}
-              height={60}
-              className="h-12 w-auto"
-              priority
-            />
+            <Image src={logoImage} alt="Hotel Excella Logo" width={120} height={60} className="h-12 w-auto" priority />
           </Link>
         </div>
 
@@ -72,7 +65,7 @@ export function Header() {
             href="/prebook"
             className="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-all duration-200 hover:bg-primary/10"
           >
-            Check Availability
+            Enquiry
           </Link>
           <a
             href="https://hotelexcella.bookmystay.io/"
@@ -80,43 +73,24 @@ export function Header() {
             rel="noopener noreferrer"
             className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-all duration-200 hover:bg-primary/90"
           >
-            Book Now
+            Check Availability
           </a>
         </div>
       </nav>
 
-      <div className={`lg:hidden ${mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
-      {/* Mobile menu */}
       <div className={`lg:hidden ${mobileMenuOpen ? "block" : "hidden"}`}>
         <button
           type="button"
           aria-label="Close menu overlay"
           onClick={() => setMobileMenuOpen(false)}
-          className={`fixed inset-0 z-40 bg-black/20 transition-opacity duration-200 ${mobileMenuOpen ? "opacity-100" : "opacity-0"}`}
+          className="fixed inset-0 z-40 bg-black/20"
         />
 
-        <div
-          className={`fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-background px-6 py-6 shadow-xl ring-1 ring-border transition-transform duration-300 ${
-            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
+        <div className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-background px-6 py-6 shadow-xl ring-1 ring-border">
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
               <span className="sr-only">Hotel Excella</span>
               <Image src={logoImage} alt="Hotel Excella Logo" width={100} height={50} className="h-10 w-auto" />
-          className="fixed inset-0 z-40 bg-black/20"
-        />
-        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-border">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
-              <span className="sr-only">Hotel Excella</span>
-              <Image
-                src={logoImage}
-                alt="Hotel Excella Logo"
-                width={100}
-                height={50}
-                className="h-10 w-auto"
-              />
             </Link>
             <button
               type="button"
@@ -153,7 +127,7 @@ export function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block w-full rounded-lg border border-primary px-4 py-3 text-center text-base font-semibold text-primary"
                 >
-                  Check Availability
+                  Enquiry
                 </Link>
                 <a
                   href="https://hotelexcella.bookmystay.io/"
@@ -161,7 +135,7 @@ export function Header() {
                   rel="noopener noreferrer"
                   className="block w-full rounded-lg bg-primary px-4 py-3 text-center text-base font-semibold text-primary-foreground shadow-sm"
                 >
-                  Book Now
+                  Check Availability
                 </a>
               </div>
             </div>
