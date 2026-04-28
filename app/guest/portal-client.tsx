@@ -94,32 +94,32 @@ export default function GuestPortalClient() {
   return (
     <div className="min-h-screen bg-[#060606] text-white">
       <main className="w-full pb-28">
-        <section className="relative flex min-h-[62svh] items-center justify-center overflow-hidden pt-2 sm:min-h-[64svh] sm:pt-4">
+        <section className="relative flex min-h-[55svh] items-start justify-center overflow-hidden pt-3 sm:min-h-[57svh] sm:pt-4">
           <img
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png"
             alt="Hotel Excella exterior"
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/85" />
-          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-6 py-12 text-center sm:px-8 sm:py-14">
+          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col px-5 pb-8 pt-3 text-left sm:px-8 sm:pb-10 sm:pt-4">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
+              src="/orderfood/data/images/logo.png"
               alt="Hotel Excella Logo"
               width={180}
               height={90}
-              className="h-auto w-[132px] drop-shadow-[0_0_16px_rgba(0,0,0,0.45)] sm:w-[156px]"
+              className="h-auto w-[122px] drop-shadow-[0_0_16px_rgba(0,0,0,0.45)] sm:w-[142px]"
               priority
             />
-            <h1 className="mt-6 font-serif text-[2rem] font-semibold leading-[1.08] tracking-[0.01em] text-[#d7b35f] sm:text-[2.5rem]">
+            <h1 className="mt-8 font-serif text-[2rem] font-semibold leading-[1.08] tracking-[0.01em] text-[#d7b35f] sm:mt-9 sm:text-[2.35rem]">
               Welcome to <span className="whitespace-nowrap">Hotel Excella</span>
             </h1>
-            <p className="mt-2 text-[0.92rem] font-medium leading-[1.3] text-white/88 sm:text-[1rem]">
+            <p className="mt-1.5 text-[0.92rem] font-medium leading-[1.3] text-white/88 sm:text-[1rem]">
               Quick services at your fingertips
             </p>
           </div>
         </section>
 
-        <div className="mx-auto w-full max-w-6xl px-4 pb-8 pt-0 sm:px-6 sm:pt-0 lg:px-8">
+        <div className="mx-auto -mt-4 w-full max-w-6xl px-4 pb-8 pt-0 sm:-mt-5 sm:px-6 sm:pt-0 lg:px-8">
           <section className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
             {quickActions.map((action, index) => {
               const Card = (
