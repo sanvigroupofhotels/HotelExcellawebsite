@@ -400,26 +400,7 @@ export default function GuestPortalClient() {
         </Link>
         <p className="mt-3 text-sm text-white/75">Thank you for choosing Hotel Excella for your stay.</p>
 
-        <div className="mt-4 flex items-center justify-center gap-3">
-          <a
-            href="https://www.instagram.com/hotelexcella_vizag"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Follow Hotel Excella on Instagram"
-            className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
-          >
-            <Instagram className="h-[18px] w-[18px]" />
-          </a>
-          <a
-            href="https://www.linkedin.com/company/sanvigroupofhotels-vizag/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Follow Hotel Excella on LinkedIn"
-            className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
-          >
-            <Linkedin className="h-[18px] w-[18px]" />
-          </a>
-        </div>
+        <p className="mt-5 text-[11px] text-white/55">2022 Hotel Excella - All rights reserved.</p>
 
         <div className="mt-5">
           <p className="text-xs uppercase tracking-[0.16em] text-[#d7bf8a]">Quick Links</p>
@@ -432,8 +413,6 @@ export default function GuestPortalClient() {
             </a>
           </div>
         </div>
-
-        <p className="mt-5 text-[11px] text-white/55">2022 Hotel Excella - All rights reserved.</p>
       </footer>
 
       <style jsx>{`
