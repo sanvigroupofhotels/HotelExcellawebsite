@@ -3,6 +3,20 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/orderfood',
+          destination: 'https://hotelexcellafoodmenu.vercel.app',
+        },
+        {
+          source: '/orderfood/:path*',
+          destination: 'https://hotelexcellafoodmenu.vercel.app/:path*',
+        },
+      ],
+    }
+  },
   images: {
     remotePatterns: [
       {
