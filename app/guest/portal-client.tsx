@@ -2,6 +2,7 @@
 
 import { type ComponentType, useEffect, useMemo, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { StickyCTA } from "@/components/sticky-cta"
 import {
   AlertCircle,
@@ -149,16 +150,27 @@ export default function GuestPortalClient() {
               }
 
               return (
-                <a
-                  key={action.title}
-                  href={action.href}
-                  target={action.external ? "_blank" : undefined}
-                  rel={action.external ? "noopener noreferrer" : undefined}
-                  className={classes}
-                  style={{ animation: `fadeCard 360ms ease ${index * 70}ms both` }}
-                >
-                  {Card}
-                </a>
+                action.external || action.href?.startsWith("tel:") ? (
+                  <a
+                    key={action.title}
+                    href={action.href}
+                    target={action.external ? "_blank" : undefined}
+                    rel={action.external ? "noopener noreferrer" : undefined}
+                    className={classes}
+                    style={{ animation: `fadeCard 360ms ease ${index * 70}ms both` }}
+                  >
+                    {Card}
+                  </a>
+                ) : (
+                  <Link
+                    key={action.title}
+                    href={action.href ?? "/guest"}
+                    className={classes}
+                    style={{ animation: `fadeCard 360ms ease ${index * 70}ms both` }}
+                  >
+                    {Card}
+                  </Link>
+                )
               )
             })}
           </section>

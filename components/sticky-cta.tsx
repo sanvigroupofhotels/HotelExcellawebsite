@@ -24,13 +24,13 @@ export function StickyCTA({ guestMode = false, onAlertClick }: StickyCTAProps) {
             <span className="mt-1 text-xs font-medium">{guestMode ? "Review" : "Book"}</span>
           </a>
           {guestMode ? (
-            <a
+            <Link
               href="/orderfood"
               className="flex flex-col items-center justify-center py-3 text-white transition-colors hover:bg-[#141414]"
             >
               <UtensilsCrossed className="h-5 w-5" />
               <span className="mt-1 text-xs font-medium">Food</span>
-            </a>
+            </Link>
           ) : (
             <Link
               href="/prebook"
