@@ -5,6 +5,7 @@ import { MapPin, Phone, Mail, Instagram, Linkedin } from "lucide-react"
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Rooms", href: "/rooms" },
+  { name: "Guest Portal", href: "/guest" },
   { name: "Check Availability", href: "/prebook" },
   { name: "Gallery", href: "/gallery" },
   { name: "Amenities", href: "/amenities" },
@@ -77,20 +78,20 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               <li>
                 <a
+                  href="tel:+918859444555"
+                  className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Phone className="h-4 w-4 mt-0.5 shrink-0" />
+                  <span>+91 88594 44555</span>
+                </a>
+              </li>
+              <li>
+                <a
                   href="tel:+919985908131"
                   className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Phone className="h-4 w-4 mt-0.5 shrink-0" />
                   <span>+91 99859 08131</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+917702483811"
-                  className="flex items-start gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Phone className="h-4 w-4 mt-0.5 shrink-0" />
-                  <span>+91 77024 83811</span>
                 </a>
               </li>
               <li>
@@ -130,7 +131,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border pt-8">
           <p className="text-center text-xs text-muted-foreground">
-            &copy; 2022 Hotel Excella. All rights reserved.
+            2022 Hotel Excella - All rights reserved.
           </p>
         </div>
       </div>
