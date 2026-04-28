@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import { Menu, X, Phone } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import logoImage from "@/app/orderfood/images/logotransparent.png"
 
 const navigation = [
@@ -68,19 +68,6 @@ export function Header() {
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
-          <a
-            href="tel:+919985908131"
-            className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-          >
-            <Phone className="h-4 w-4" />
-            <span>+91 99859 08131</span>
-          </a>
-          <Link
-            href="/prebook"
-            className="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-all duration-200 hover:bg-primary/10"
-          >
-            Enquiry
-          </Link>
           <a
             href="https://hotelexcella.bookmystay.io/"
             target="_blank"
