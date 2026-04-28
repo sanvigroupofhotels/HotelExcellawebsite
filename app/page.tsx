@@ -19,21 +19,21 @@ import {
 
 const bookingUrl = "https://hotelexcella.bookmystay.io/"
 
-const highlightCards = [
+const valueCards = [
   {
     icon: MapPin,
     title: "Prime Vizag Location",
-    description: "Near beach & city hotspots",
+    description: "Near beach and city hotspots",
   },
   {
     icon: Shield,
-    title: "Hygienic Rooms",
-    description: "Sanitized & clean daily",
+    title: "Hygienic Stays",
+    description: "Sanitized rooms, cleaned daily",
   },
   {
     icon: Users,
     title: "Family Friendly",
-    description: "Ideal for couples & families",
+    description: "Comfortable for couples and families",
   },
   {
     icon: Calendar,
@@ -50,12 +50,9 @@ const highlightCards = [
     title: "24x7 Reception",
     description: "Front desk anytime",
   },
-]
-
-const featureCards = [
-  { icon: Sparkles, label: "Spotless Interiors", description: "Clean & bright" },
-  { icon: Home, label: "Daily Housekeeping", description: "Fresh every day" },
-  { icon: Users, label: "Comfort for Families", description: "Relax & enjoy" },
+  { icon: Sparkles, title: "Spotless Interiors", description: "Clean, bright, and modern" },
+  { icon: Home, title: "Daily Housekeeping", description: "Fresh linens and tidy rooms" },
+  { icon: ClipboardCheck, title: "Easy Enquiry", description: "Quick support before your stay" },
 ]
 
 const rooms = [
@@ -142,7 +139,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="py-14 lg:py-20">
+        <section className="py-12 lg:py-16">
           <div className="mx-auto max-w-7xl px-4">
             <div className="text-center">
               <h2 className="font-serif text-3xl font-bold text-foreground lg:text-4xl">
@@ -153,8 +150,8 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="mt-10 grid grid-cols-3 gap-2 sm:gap-3 lg:grid-cols-4">
-              {highlightCards.map((card) => (
+            <div className="mt-8 grid grid-cols-3 gap-2.5 sm:gap-3.5 lg:gap-4">
+              {valueCards.map((card) => (
                 <div
                   key={card.title}
                   className="group rounded-lg border border-border bg-card p-2 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-md sm:rounded-xl sm:p-3 lg:rounded-2xl lg:p-4"
@@ -165,27 +162,8 @@ export default function HomePage() {
                   <h3 className="mt-2 text-[11px] leading-snug font-semibold text-foreground sm:mt-2.5 sm:text-sm lg:text-base">
                     {card.title}
                   </h3>
-                  <p className="mt-1 text-[10px] leading-snug text-muted-foreground sm:text-xs sm:leading-relaxed lg:text-sm">
+                  <p className="mt-1 hidden text-[10px] leading-snug text-muted-foreground sm:block sm:text-xs sm:leading-relaxed lg:text-sm">
                     {card.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-4 grid grid-cols-3 gap-2 sm:mt-6 sm:gap-3 lg:gap-4">
-              {featureCards.map((feature) => (
-                <div
-                  key={feature.label}
-                  className="group rounded-lg border border-border bg-card p-2 text-left shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-md sm:rounded-xl sm:p-3 lg:rounded-2xl lg:p-4"
-                >
-                  <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground sm:h-9 sm:w-9 sm:rounded-lg">
-                    <feature.icon className="h-3.5 w-3.5 sm:h-4.5 sm:w-4.5 lg:h-5 lg:w-5" />
-                  </div>
-                  <h3 className="mt-2 text-[11px] leading-snug font-semibold text-foreground sm:mt-2.5 sm:text-sm lg:text-base">
-                    {feature.label}
-                  </h3>
-                  <p className="mt-1 text-[10px] leading-snug text-muted-foreground sm:text-xs sm:leading-relaxed lg:text-sm">
-                    {feature.description}
                   </p>
                 </div>
               ))}
@@ -193,7 +171,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-card py-16 lg:py-24">
+        <section className="bg-card py-12 lg:py-16">
           <div className="mx-auto max-w-7xl px-4">
             <div className="text-center">
               <h2 className="font-serif text-3xl font-bold text-foreground lg:text-4xl">
@@ -238,7 +216,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="pt-16">
+        <section className="pt-8 lg:pt-10">
           <div className="mx-auto max-w-7xl px-4 text-center">
             <h2 className="font-serif text-3xl font-bold text-foreground lg:text-4xl">
               Experience <span className="text-primary">Hotel Excella</span>
@@ -247,7 +225,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="py-12 lg:py-16">
+        <section className="pt-6 pb-10 lg:pt-8 lg:pb-12">
           <div className="mx-auto max-w-7xl px-4">
             <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
               {galleryImages.map((image) => (
@@ -277,7 +255,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-card py-16 lg:py-24">
+        <section className="bg-card py-12 lg:py-16">
           <div className="mx-auto max-w-4xl px-4 text-center">
             <h2 className="text-balance font-serif text-3xl font-bold text-foreground lg:text-4xl">
               Ready for a <span className="text-primary">Premium Stay</span> in Vizag?

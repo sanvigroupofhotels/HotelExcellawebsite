@@ -78,15 +78,19 @@ export function Header() {
         </div>
       </nav>
 
-      <div className={`lg:hidden ${mobileMenuOpen ? "block" : "hidden"}`}>
+      <div className={`lg:hidden ${mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
         <button
           type="button"
           aria-label="Close menu overlay"
           onClick={() => setMobileMenuOpen(false)}
-          className="fixed inset-0 z-40 bg-black/20"
+          className={`fixed inset-0 z-[60] bg-black/35 transition-opacity duration-200 ${mobileMenuOpen ? "opacity-100" : "opacity-0"}`}
         />
 
-        <div className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-background px-6 py-6 shadow-xl ring-1 ring-border">
+        <div
+          className={`fixed inset-y-0 right-0 z-[70] w-full max-w-sm overflow-y-auto bg-background px-6 py-6 shadow-xl ring-1 ring-border transition-transform duration-300 ${
+            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
               <span className="sr-only">Hotel Excella</span>

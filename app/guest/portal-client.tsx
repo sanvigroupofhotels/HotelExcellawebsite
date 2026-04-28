@@ -1,7 +1,6 @@
 "use client"
 
 import { type ComponentType, useEffect, useMemo, useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { StickyCTA } from "@/components/sticky-cta"
 import {
@@ -94,7 +93,7 @@ export default function GuestPortalClient() {
   return (
     <div className="min-h-screen bg-[#060606] text-white">
       <main className="w-full pb-28">
-       <section className="relative flex min-h-[55svh] items-start justify-center overflow-hidden pt-2 sm:min-h-[57svh] sm:pt-3">
+       <section className="relative flex min-h-[48svh] items-start justify-center overflow-hidden pt-3 sm:min-h-[52svh] sm:pt-4">
   <img
     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png"
     alt="Hotel Excella exterior"
@@ -102,24 +101,11 @@ export default function GuestPortalClient() {
   />
   <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/85" />
 
-  <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col px-5 pb-6 pt-2 text-left sm:px-8 sm:pb-8 sm:pt-3">
-
-    {/* Logo */}
-    <Image
-      src="/orderfood/data/images/logo.png"
-      alt="Hotel Excella Logo"
-      width={125}
-      height={65}
-      className="h-auto w-[85px] sm:w-[100px] drop-shadow-[0_0_16px_rgba(0,0,0,0.45)]"
-      priority
-    />
-
-    {/* Heading */}
-    <h1 className="mt-5 font-serif text-[1.85rem] font-semibold leading-[1.1] tracking-[0.01em] text-[#d7b35f] sm:mt-6 sm:text-[2.2rem]">
+  <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col px-5 pb-6 pt-4 text-left sm:px-8 sm:pb-8 sm:pt-5">
+    <h1 className="mt-5 font-serif text-[1.9rem] font-semibold leading-[1.08] tracking-[0.01em] text-[#d7b35f] sm:mt-6 sm:text-[2.3rem]">
       Welcome to <span className="whitespace-nowrap">Hotel Excella</span>
     </h1>
 
-    {/* Subtext */}
     <p className="mt-1 text-[0.9rem] font-medium leading-[1.35] text-white/90 sm:text-[0.98rem]">
       Quick services at your fingertips
     </p>
@@ -128,20 +114,20 @@ export default function GuestPortalClient() {
 </section>
 
         <div className="mx-auto -mt-4 w-full max-w-6xl px-4 pb-8 pt-0 sm:-mt-5 sm:px-6 sm:pt-0 lg:px-8">
-          <section className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+          <section className="grid grid-cols-3 gap-2.5 sm:gap-3">
             {quickActions.map((action, index) => {
               const Card = (
                 <>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#c8a45c]/55 bg-[#101010] text-[#d4ad5a]">
-                    <action.icon className="h-[21px] w-[21px]" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#c8a45c]/55 bg-[#101010] text-[#d4ad5a] sm:h-11 sm:w-11">
+                    <action.icon className="h-[18px] w-[18px] sm:h-5 sm:w-5" />
                   </div>
-                  <h2 className="mt-4 text-[1.03rem] font-semibold leading-tight text-white">{action.title}</h2>
-                  <p className="mt-1 text-[0.91rem] leading-snug text-white/73">{action.description}</p>
+                  <h2 className="mt-3 text-[0.82rem] font-semibold leading-tight text-white sm:text-[0.95rem]">{action.title}</h2>
+                  <p className="mt-1 hidden text-[0.78rem] leading-snug text-white/73 sm:block sm:text-[0.84rem]">{action.description}</p>
                 </>
               )
 
               const classes =
-                "group flex min-h-[172px] flex-col justify-center rounded-2xl border border-[#c8a45c]/45 bg-gradient-to-b from-[#111111] to-[#0b0b0b] p-4 text-left shadow-[0_20px_34px_-33px_rgba(0,0,0,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d7b877] active:scale-[0.97]"
+                "group flex min-h-[128px] flex-col justify-center rounded-xl border border-[#c8a45c]/45 bg-gradient-to-b from-[#111111] to-[#0b0b0b] p-3 text-left shadow-[0_20px_34px_-33px_rgba(0,0,0,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d7b877] active:scale-[0.97] sm:min-h-[144px] sm:rounded-2xl sm:p-4"
 
               if (action.onClick) {
                 return (
