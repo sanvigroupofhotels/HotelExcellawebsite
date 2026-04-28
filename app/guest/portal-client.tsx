@@ -81,7 +81,7 @@ export default function GuestPortalClient() {
         icon: Phone,
         title: "Reception Help",
         description: "Dial 9 or call reception anytime",
-        href: "tel:+919985908131",
+        href: "tel:+917702483811",
       },
       {
         icon: AlertCircle,
@@ -288,8 +288,8 @@ export default function GuestPortalClient() {
               className="rounded-xl border border-white/10 bg-[#0f0f0f] p-3 text-center transition hover:border-[#c8a45c]/45"
             >
               <MapPin className="mx-auto h-4 w-4 text-[#d4ad5a]" />
-              <p className="mt-1 text-[11px] text-white/70">Address</p>
-              <p className="text-xs font-semibold leading-tight text-white">Hotel Excella, Vizag</p>
+              <p className="mt-1 text-[11px] text-white/70">Maps</p>
+              <p className="text-xs font-semibold leading-tight text-white">Hotel Excella</p>
             </a>
           </section>
 
