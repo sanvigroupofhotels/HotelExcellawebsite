@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
 
 export default function OrderFoodPage() {
-  redirect("https://hotel-excella-orderfood.vercel.app")
+  redirect("https://hotelexcellafoodmenu.vercel.app")
 }
