@@ -55,78 +55,88 @@ export default function HomePage() {
       
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center pt-16">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png"
-              alt="Hotel Excella Exterior - Premium Hotel in Vizag"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
-          </div>
+<section className="relative min-h-[88vh] flex items-center justify-center pt-10 sm:pt-14">
+  <div className="absolute inset-0 z-0">
+    <Image
+      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png"
+      alt="Hotel Excella Exterior - Premium Hotel in Vizag"
+      fill
+      className="object-cover"
+      priority
+    />
+    <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+  </div>
 
-          <div className="relative z-10 mx-auto max-w-7xl px-4 py-24 text-center lg:py-32">
-            <div className="mx-auto max-w-3xl">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
-                alt="Hotel Excella Logo"
-                width={200}
-                height={100}
-                className="mx-auto h-24 w-auto lg:h-32"
-                priority
-              />
-              
-              <h1 className="mt-8 font-serif text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
-                Welcome to <span className="text-primary">Hotel Excella</span>
-              </h1>
-              
-              <p className="mt-4 text-xl text-primary font-medium">
-                Premium comfort in the heart of Vizag.
-              </p>
-              
-              <p className="mt-4 text-lg text-muted-foreground text-pretty">
-                A stay designed with comfort, cleanliness and convenience in mind.
-              </p>
+  <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 text-center sm:py-20 lg:py-24">
+    <div className="mx-auto max-w-3xl">
 
-              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href="https://hotelexcella.bookmystay.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105"
-                >
-                  <Calendar className="h-5 w-5" />
-                  Book Now
-                </a>
-                <Link
-                  href="/prebook"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-8 py-4 text-lg font-semibold text-secondary-foreground border border-primary hover:bg-primary/10 transition-all duration-300"
-                >
-                  <ClipboardCheck className="h-5 w-5" />
-                  Check Availability
-                </Link>
-                <a
-                  href="https://wa.me/919985908131"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-green-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-green-700 transition-all duration-300"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  WhatsApp
-                </a>
-              </div>
-            </div>
-          </div>
+      {/* Logo */}
+      <Image
+        src="/orderfood/data/images/logo.png"
+        alt="Hotel Excella Logo"
+        width={160}
+        height={80}
+        className="mx-auto h-auto w-[110px] sm:w-[130px] lg:w-[150px]"
+        priority
+      />
 
-          {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-            <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center">
-              <div className="w-1.5 h-3 bg-primary rounded-full mt-2 animate-pulse" />
-            </div>
-          </div>
-        </section>
+      {/* Heading */}
+      <h1 className="mt-6 font-serif text-[2.2rem] font-semibold tracking-tight text-foreground sm:text-[2.6rem] lg:text-[3.2rem] leading-[1.1]">
+        Welcome to <span className="text-primary">Hotel Excella</span>
+      </h1>
+
+      {/* Subheadline */}
+      <p className="mt-2 text-[1.05rem] text-primary font-medium sm:text-[1.15rem]">
+        Premium comfort in the heart of Vizag.
+      </p>
+
+      {/* Supporting line */}
+      <p className="mt-2 text-[0.95rem] text-muted-foreground sm:text-[1rem] leading-[1.5]">
+        A stay designed with comfort, cleanliness and convenience in mind.
+      </p>
+
+      {/* CTA Buttons */}
+      <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+
+        <a
+          href="https://hotelexcella.bookmystay.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 transition-all duration-300 hover:scale-[1.02]"
+        >
+          <Calendar className="h-4 w-4" />
+          Book Now
+        </a>
+
+        <Link
+          href="/prebook"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-6 py-3 text-base font-semibold text-secondary-foreground border border-primary hover:bg-primary/10 transition-all duration-300"
+        >
+          <ClipboardCheck className="h-4 w-4" />
+          Check Availability
+        </Link>
+
+        <a
+          href="https://wa.me/919985908131"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-green-600 px-6 py-3 text-base font-semibold text-white shadow-lg hover:bg-green-700 transition-all duration-300"
+        >
+          <MessageCircle className="h-4 w-4" />
+          WhatsApp
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  {/* Scroll indicator */}
+  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+    <div className="w-5 h-9 border border-primary/50 rounded-full flex justify-center">
+      <div className="w-1 h-2.5 bg-primary rounded-full mt-2 animate-pulse" />
+    </div>
+  </div>
+</section>
 
         {/* Trust Badges */}
         <section className="relative z-10 bg-card border-y border-border py-8 -mt-20">
