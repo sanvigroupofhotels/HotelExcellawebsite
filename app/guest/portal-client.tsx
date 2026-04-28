@@ -293,27 +293,55 @@ export default function GuestPortalClient() {
             </a>
           </section>
 
-          <section className="mt-4 rounded-2xl border border-[#c8a45c]/35 bg-[#0f0f0f] px-4 py-3.5 text-center">
-            <p className="text-sm tracking-wide text-[#d7bf8a]">Follow us at</p>
-            <div className="mt-3 flex items-center justify-center gap-3">
-              <a
-                href="https://www.instagram.com/hotelexcella_vizag"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow Hotel Excella on Instagram"
-                className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
-              >
-                <Instagram className="h-[18px] w-[18px]" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/sanvigroupofhotels-vizag/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow Hotel Excella on LinkedIn"
-                className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
-              >
-                <Linkedin className="h-[18px] w-[18px]" />
-              </a>
+          <section className="mt-4 grid gap-3 md:grid-cols-2">
+            <div className="rounded-2xl border border-[#c8a45c]/35 bg-[#0f0f0f] px-4 py-3.5 text-center">
+              <p className="text-sm tracking-wide text-[#d7bf8a]">Follow us at</p>
+              <div className="mt-3 flex items-center justify-center gap-3">
+                <a
+                  href="https://www.instagram.com/hotelexcella_vizag"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow Hotel Excella on Instagram"
+                  className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
+                >
+                  <Instagram className="h-[18px] w-[18px]" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/sanvigroupofhotels-vizag/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow Hotel Excella on LinkedIn"
+                  className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
+                >
+                  <Linkedin className="h-[18px] w-[18px]" />
+                </a>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-[#c8a45c]/35 bg-[#0f0f0f] px-4 py-4 text-left">
+              <Link href="/guest" className="inline-flex items-center justify-start">
+                <Image src={logoImage} alt="Hotel Excella Logo" width={88} height={40} className="h-8 w-auto" />
+              </Link>
+              <p className="mt-3 text-sm text-white/75">Thank you for choosing Hotel Excella for your stay.</p>
+
+              <div className="mt-5">
+                <p className="text-xs uppercase tracking-[0.16em] text-[#d7bf8a]">Quick Links</p>
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-white/80 marker:text-[#d7bf8a]">
+                  <li>
+                    <Link href="/review" className="hover:text-[#d7b35f]">Review Us</Link>
+                  </li>
+                  <li>
+                    <Link href="/orderfood" className="hover:text-[#d7b35f]">Food Menu</Link>
+                  </li>
+                  <li>
+                    <a href="https://hotelexcella.bookmystay.io/" target="_blank" rel="noopener noreferrer" className="hover:text-[#d7b35f]">
+                      Instant Booking
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <p className="mt-5 text-[11px] text-white/55">2022 Hotel Excella - All rights reserved.</p>
             </div>
 
             <div className="mt-5 border-t border-[#c8a45c]/30 pt-5 text-center">
