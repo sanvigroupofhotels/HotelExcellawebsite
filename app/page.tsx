@@ -139,7 +139,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="py-12 lg:py-16">
+        <section className="pt-10 pb-8 lg:pt-12 lg:pb-10">
           <div className="mx-auto max-w-7xl px-4">
             <div className="text-center">
               <h2 className="font-serif text-3xl font-bold text-foreground lg:text-4xl">
@@ -171,7 +171,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-card py-12 lg:py-16">
+        <section className="bg-card pt-8 pb-12 lg:pt-10 lg:pb-14">
           <div className="mx-auto max-w-7xl px-4">
             <div className="text-center">
               <h2 className="font-serif text-3xl font-bold text-foreground lg:text-4xl">
@@ -180,7 +180,7 @@ export default function HomePage() {
               <p className="mt-4 text-lg text-muted-foreground">Comfortable spaces designed for your perfect stay.</p>
             </div>
 
-            <div className="mt-12 grid gap-8 lg:grid-cols-2">
+            <div className="mt-8 grid gap-8 lg:mt-10 lg:grid-cols-2">
               {rooms.map((room) => (
                 <div
                   key={room.name}
@@ -216,18 +216,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="pt-8 lg:pt-10">
+        <section className="pt-8 pb-10 lg:pt-10 lg:pb-12">
           <div className="mx-auto max-w-7xl px-4 text-center">
             <h2 className="font-serif text-3xl font-bold text-foreground lg:text-4xl">
               Experience <span className="text-primary">Hotel Excella</span>
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">Take a glimpse of our premium facilities and warm hospitality.</p>
-          </div>
-        </section>
-
-        <section className="pt-6 pb-10 lg:pt-8 lg:pb-12">
-          <div className="mx-auto max-w-7xl px-4">
-            <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+            <div className="mt-8 grid grid-cols-2 gap-4 lg:mt-10 lg:grid-cols-4">
               {galleryImages.map((image) => (
                 <div
                   key={image.alt}
@@ -243,7 +238,7 @@ export default function HomePage() {
               ))}
             </div>
 
-            <div className="mt-12 text-center">
+            <div className="mt-10 text-center lg:mt-12">
               <Link
                 href="/gallery"
                 className="inline-flex items-center gap-2 text-lg font-medium text-primary transition-colors hover:text-primary/80"
@@ -255,7 +250,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-card py-12 lg:py-16">
+        <section className="bg-card pt-8 pb-12 lg:pt-10 lg:pb-16">
           <div className="mx-auto max-w-4xl px-4 text-center">
             <h2 className="text-balance font-serif text-3xl font-bold text-foreground lg:text-4xl">
               Ready for a <span className="text-primary">Premium Stay</span> in Vizag?
