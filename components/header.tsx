@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
 import { Menu, X, Phone } from "lucide-react"
+import logoImage from "@/app/orderfood/images/logotransparent.png"
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -25,7 +26,7 @@ export function Header() {
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Hotel Excella</span>
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
+              src={logoImage}
               alt="Hotel Excella Logo"
               width={120}
               height={60}
@@ -85,13 +86,18 @@ export function Header() {
 
       {/* Mobile menu */}
       <div className={`lg:hidden ${mobileMenuOpen ? "block" : "hidden"}`}>
-        <div className="fixed inset-0 z-50" />
+        <button
+          type="button"
+          aria-label="Close menu overlay"
+          onClick={() => setMobileMenuOpen(false)}
+          className="fixed inset-0 z-40 bg-black/20"
+        />
         <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-border">
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
               <span className="sr-only">Hotel Excella</span>
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
+                src={logoImage}
                 alt="Hotel Excella Logo"
                 width={100}
                 height={50}
