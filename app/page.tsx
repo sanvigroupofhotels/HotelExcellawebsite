@@ -23,39 +23,39 @@ const highlightCards = [
   {
     icon: MapPin,
     title: "Prime Vizag Location",
-    description: "Near beach road, city hotspots, and key business areas.",
+    description: "Near beach & city hotspots",
   },
   {
     icon: Shield,
     title: "Hygienic Rooms",
-    description: "Daily-cleaned, sanitized rooms for a worry-free stay.",
+    description: "Sanitized & clean daily",
   },
   {
     icon: Users,
     title: "Family Friendly",
-    description: "Comfortable layouts ideal for couples and families.",
+    description: "Ideal for couples & families",
   },
   {
     icon: Calendar,
     title: "Direct Booking",
-    description: "Quick confirmations with direct hotel assistance.",
+    description: "Fast confirmations",
   },
   {
     icon: Wifi,
     title: "High-Speed Wi-Fi",
-    description: "Fast, reliable internet across rooms and common spaces.",
+    description: "Reliable internet",
   },
   {
     icon: Clock,
     title: "24x7 Reception",
-    description: "Anytime front-desk support for smooth check-ins.",
+    description: "Front desk anytime",
   },
 ]
 
 const featureCards = [
-  { icon: Sparkles, label: "Spotless Interiors" },
-  { icon: Home, label: "Daily Housekeeping" },
-  { icon: Users, label: "Comfort for Families" },
+  { icon: Sparkles, label: "Spotless Interiors", description: "Clean & bright" },
+  { icon: Home, label: "Daily Housekeeping", description: "Fresh every day" },
+  { icon: Users, label: "Comfort for Families", description: "Relax & enjoy" },
 ]
 
 const rooms = [
@@ -153,33 +153,40 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-4 lg:grid-cols-4">
+            <div className="mt-10 grid grid-cols-3 gap-2 sm:gap-3 lg:grid-cols-4">
               {highlightCards.map((card) => (
                 <div
                   key={card.title}
-                  className="group rounded-xl border border-border bg-card p-3 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-md sm:rounded-2xl sm:p-4"
+                  className="group rounded-lg border border-border bg-card p-2 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-md sm:rounded-xl sm:p-3 lg:rounded-2xl lg:p-4"
                 >
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground sm:h-10 sm:w-10">
-                    <card.icon className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground sm:h-9 sm:w-9 sm:rounded-lg">
+                    <card.icon className="h-3.5 w-3.5 sm:h-4.5 sm:w-4.5 lg:h-5 lg:w-5" />
                   </div>
-                  <h3 className="mt-2 text-xs leading-snug font-semibold text-foreground sm:mt-3 sm:text-sm lg:text-base">{card.title}</h3>
-                  <p className="mt-1 text-[11px] leading-snug text-muted-foreground sm:mt-2 sm:text-xs sm:leading-relaxed lg:text-sm">
+                  <h3 className="mt-2 text-[11px] leading-snug font-semibold text-foreground sm:mt-2.5 sm:text-sm lg:text-base">
+                    {card.title}
+                  </h3>
+                  <p className="mt-1 text-[10px] leading-snug text-muted-foreground sm:text-xs sm:leading-relaxed lg:text-sm">
                     {card.description}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            <div className="mt-4 grid grid-cols-3 gap-2 sm:mt-6 sm:gap-3 lg:gap-4">
               {featureCards.map((feature) => (
                 <div
                   key={feature.label}
-                  className="group flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-4 shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-md"
+                  className="group rounded-lg border border-border bg-card p-2 text-left shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-md sm:rounded-xl sm:p-3 lg:rounded-2xl lg:p-4"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                    <feature.icon className="h-5 w-5" />
+                  <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground sm:h-9 sm:w-9 sm:rounded-lg">
+                    <feature.icon className="h-3.5 w-3.5 sm:h-4.5 sm:w-4.5 lg:h-5 lg:w-5" />
                   </div>
-                  <span className="text-sm font-semibold text-foreground">{feature.label}</span>
+                  <h3 className="mt-2 text-[11px] leading-snug font-semibold text-foreground sm:mt-2.5 sm:text-sm lg:text-base">
+                    {feature.label}
+                  </h3>
+                  <p className="mt-1 text-[10px] leading-snug text-muted-foreground sm:text-xs sm:leading-relaxed lg:text-sm">
+                    {feature.description}
+                  </p>
                 </div>
               ))}
             </div>
