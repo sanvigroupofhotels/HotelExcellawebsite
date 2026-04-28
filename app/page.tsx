@@ -23,32 +23,32 @@ const highlightCards = [
   {
     icon: MapPin,
     title: "Prime Vizag Location",
-    description: "Conveniently located for business trips, family stays, and city access.",
+    description: "Near beach road, city hotspots, and key business areas.",
   },
   {
     icon: Shield,
     title: "Hygienic Rooms",
-    description: "Professionally maintained rooms with strict daily cleanliness standards.",
+    description: "Daily-cleaned, sanitized rooms for a worry-free stay.",
   },
   {
     icon: Users,
     title: "Family Friendly",
-    description: "Spacious layouts and a welcoming atmosphere for every kind of traveller.",
+    description: "Comfortable layouts ideal for couples and families.",
   },
   {
     icon: Calendar,
     title: "Direct Booking",
-    description: "Faster confirmations and trusted direct assistance from our hotel team.",
+    description: "Quick confirmations with direct hotel assistance.",
   },
   {
     icon: Wifi,
     title: "High-Speed Wi-Fi",
-    description: "Reliable internet connectivity in rooms and common areas.",
+    description: "Fast, reliable internet across rooms and common spaces.",
   },
   {
     icon: Clock,
     title: "24x7 Reception",
-    description: "Round-the-clock support to keep your stay effortless and smooth.",
+    description: "Anytime front-desk support for smooth check-ins.",
   },
 ]
 
@@ -153,17 +153,19 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-4 lg:grid-cols-4">
               {highlightCards.map((card) => (
                 <div
                   key={card.title}
-                  className="group rounded-2xl border border-border bg-card p-5 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-md"
+                  className="group rounded-xl border border-border bg-card p-3 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-md sm:rounded-2xl sm:p-4"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                    <card.icon className="h-5 w-5" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground sm:h-10 sm:w-10">
+                    <card.icon className="h-4 w-4 sm:h-5 sm:w-5" />
                   </div>
-                  <h3 className="mt-4 text-base font-semibold text-foreground">{card.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.description}</p>
+                  <h3 className="mt-2 text-xs leading-snug font-semibold text-foreground sm:mt-3 sm:text-sm lg:text-base">{card.title}</h3>
+                  <p className="mt-1 text-[11px] leading-snug text-muted-foreground sm:mt-2 sm:text-xs sm:leading-relaxed lg:text-sm">
+                    {card.description}
+                  </p>
                 </div>
               ))}
             </div>
