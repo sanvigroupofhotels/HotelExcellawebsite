@@ -94,30 +94,38 @@ export default function GuestPortalClient() {
   return (
     <div className="min-h-screen bg-[#060606] text-white">
       <main className="w-full pb-28">
-        <section className="relative flex min-h-[55svh] items-start justify-center overflow-hidden pt-3 sm:min-h-[57svh] sm:pt-4">
-          <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png"
-            alt="Hotel Excella exterior"
-            className="absolute inset-0 h-full w-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/85" />
-          <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col px-5 pb-8 pt-3 text-left sm:px-8 sm:pb-10 sm:pt-4">
-            <Image
-              src="/orderfood/data/images/logo.png"
-              alt="Hotel Excella Logo"
-              width={125}
-              height={65}
-              className="h-auto w-[85px] drop-shadow-[0_0_16px_rgba(0,0,0,0.45)] sm:w-[100px]"
-              priority
-            />
-            <h1 className="mt-8 font-serif text-[2rem] font-semibold leading-[1.08] tracking-[0.01em] text-[#d7b35f] sm:mt-9 sm:text-[2.35rem]">
-              Welcome to <span className="whitespace-nowrap">Hotel Excella</span>
-            </h1>
-            <p className="mt-1.5 text-[0.92rem] font-medium leading-[1.3] text-white/88 sm:text-[1rem]">
-              Quick services at your fingertips
-            </p>
-          </div>
-        </section>
+       <section className="relative flex min-h-[55svh] items-start justify-center overflow-hidden pt-2 sm:min-h-[57svh] sm:pt-3">
+  <img
+    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/exterior-nVoa2Cga1MFRzoV6YEywjt23i2QKvv.png"
+    alt="Hotel Excella exterior"
+    className="absolute inset-0 h-full w-full object-cover object-center"
+  />
+  <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/85" />
+
+  <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col px-5 pb-6 pt-2 text-left sm:px-8 sm:pb-8 sm:pt-3">
+
+    {/* Logo */}
+    <Image
+      src="/orderfood/data/images/logo.png"
+      alt="Hotel Excella Logo"
+      width={125}
+      height={65}
+      className="h-auto w-[85px] sm:w-[100px] drop-shadow-[0_0_16px_rgba(0,0,0,0.45)]"
+      priority
+    />
+
+    {/* Heading */}
+    <h1 className="mt-5 font-serif text-[1.85rem] font-semibold leading-[1.1] tracking-[0.01em] text-[#d7b35f] sm:mt-6 sm:text-[2.2rem]">
+      Welcome to <span className="whitespace-nowrap">Hotel Excella</span>
+    </h1>
+
+    {/* Subtext */}
+    <p className="mt-1 text-[0.9rem] font-medium leading-[1.35] text-white/90 sm:text-[0.98rem]">
+      Quick services at your fingertips
+    </p>
+
+  </div>
+</section>
 
         <div className="mx-auto -mt-4 w-full max-w-6xl px-4 pb-8 pt-0 sm:-mt-5 sm:px-6 sm:pt-0 lg:px-8">
           <section className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
