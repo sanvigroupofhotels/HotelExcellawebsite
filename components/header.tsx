@@ -32,8 +32,9 @@ export function Header() {
   }, [mobileMenuOpen])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
             <span className="sr-only">Hotel Excella</span>
@@ -47,10 +48,10 @@ export function Header() {
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-main-menu"
             aria-label={mobileMenuOpen ? "Close main menu" : "Open main menu"}
-            onClick={() => setMobileMenuOpen(true)}
+            onClick={() => setMobileMenuOpen((open) => !open)}
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground"
           >
-            <Menu className="h-6 w-6" aria-hidden="true" />
+            {mobileMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
           </button>
         </div>
 
@@ -86,19 +87,24 @@ export function Header() {
             rel="noopener noreferrer"
             className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-all duration-200 hover:bg-primary/90"
           >
-            Check Availability
+            Instant Booking
           </a>
         </div>
-      </nav>
+        </nav>
+      </header>
 
-      {mobileMenuOpen && (
-        <div className="lg:hidden">
-          <button type="button" aria-label="Close menu overlay" onClick={() => setMobileMenuOpen(false)} className="fixed inset-0 z-[60] bg-black/35" />
+      <div className={`lg:hidden ${mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`} aria-hidden={!mobileMenuOpen}>
+        <button
+          type="button"
+          aria-label="Close menu overlay"
+          onClick={() => setMobileMenuOpen(false)}
+          className={`fixed inset-0 z-[60] bg-black/35 transition-opacity duration-300 ${mobileMenuOpen ? "opacity-100" : "opacity-0"}`}
+        />
 
-          <div
-            id="mobile-main-menu"
-            className="fixed inset-y-0 right-0 z-[70] w-full max-w-sm overflow-y-auto bg-background px-6 py-6 shadow-xl ring-1 ring-border animate-in slide-in-from-right duration-200"
-          >
+        <div
+          id="mobile-main-menu"
+          className={`fixed inset-y-0 right-0 z-[70] w-full max-w-sm overflow-y-auto bg-background px-6 py-6 shadow-xl ring-1 ring-border transition-transform duration-300 ease-out ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+        >
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
                 <span className="sr-only">Hotel Excella</span>
@@ -147,14 +153,13 @@ export function Header() {
                     rel="noopener noreferrer"
                     className="block w-full rounded-lg bg-primary px-4 py-3 text-center text-base font-semibold text-primary-foreground shadow-sm"
                   >
-                    Check Availability
+                    Instant Booking
                   </a>
                 </div>
               </div>
             </div>
-          </div>
         </div>
-      )}
-    </header>
+      </div>
+    </>
   )
 }
