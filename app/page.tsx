@@ -273,7 +273,7 @@ export default function HomePage() {
                 className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground shadow-lg transition-all duration-300 hover:bg-primary/90 sm:w-auto"
               >
                 <Calendar className="h-5 w-5" />
-                Check Availability
+                Instant Booking
               </a>
               <a
                 href="https://wa.me/919985908131"

@@ -130,7 +130,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border pt-8">
           <p className="text-center text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Hotel Excella. All rights reserved.
+            &copy; 2022 Hotel Excella. All rights reserved.
           </p>
         </div>
       </div>

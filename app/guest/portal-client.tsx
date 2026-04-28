@@ -2,7 +2,9 @@
 
 import { type ComponentType, useEffect, useMemo, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { StickyCTA } from "@/components/sticky-cta"
+import logoImage from "@/app/orderfood/images/logotransparent.png"
 import {
   AlertCircle,
   BedDouble,
@@ -107,8 +109,9 @@ export default function GuestPortalClient() {
   return (
     <div className="min-h-screen bg-[#060606] text-white">
       <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-4 py-3 sm:hidden">
-        <Link href="/" className="text-sm font-semibold tracking-wide text-[#e2c277]">
-          Hotel Excella
+        <Link href="/" className="-m-1.5 p-1.5">
+          <span className="sr-only">Hotel Excella</span>
+          <Image src={logoImage} alt="Hotel Excella Logo" width={92} height={42} className="h-9 w-auto" priority />
         </Link>
         <button
           type="button"
@@ -140,9 +143,6 @@ export default function GuestPortalClient() {
             </button>
           </div>
           <nav className="space-y-2">
-            <Link href="/guest" className="block rounded-lg border border-white/10 px-3 py-2 text-sm font-medium text-white/90">
-              Guest Portal
-            </Link>
             <Link href="/review" className="block rounded-lg border border-white/10 px-3 py-2 text-sm font-medium text-white/90">
               Review Us
             </Link>
@@ -160,6 +160,16 @@ export default function GuestPortalClient() {
             >
               Instant Booking
             </a>
+            <button
+              type="button"
+              onClick={() => {
+                setIsGuestMenuOpen(false)
+                setActivePopup("payment")
+              }}
+              className="block w-full rounded-lg border border-white/10 px-3 py-2 text-left text-sm font-medium text-white/90"
+            >
+              Alert
+            </button>
           </nav>
         </aside>
       </div>
@@ -384,8 +394,46 @@ export default function GuestPortalClient() {
         </div>
       )}
 
-      <footer className="pb-8 text-center">
-        <p className="text-[11px] text-white/55">&copy; {new Date().getFullYear()} Hotel Excella. All rights reserved.</p>
+      <footer className="border-t border-[#c8a45c]/25 bg-[#0d0d0d] px-4 pb-8 pt-7 text-center">
+        <Link href="/" className="inline-flex items-center justify-center">
+          <Image src={logoImage} alt="Hotel Excella Logo" width={110} height={50} className="h-10 w-auto" />
+        </Link>
+        <p className="mt-3 text-sm text-white/75">Thank you for choosing Hotel Excella for your stay.</p>
+
+        <div className="mt-4 flex items-center justify-center gap-3">
+          <a
+            href="https://www.instagram.com/hotelexcella_vizag"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow Hotel Excella on Instagram"
+            className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
+          >
+            <Instagram className="h-[18px] w-[18px]" />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/sanvigroupofhotels-vizag/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow Hotel Excella on LinkedIn"
+            className="rounded-xl border border-[#c8a45c]/60 p-2.5 text-[#d4ad5a] transition hover:border-[#d7b877] hover:bg-[#131313]"
+          >
+            <Linkedin className="h-[18px] w-[18px]" />
+          </a>
+        </div>
+
+        <div className="mt-5">
+          <p className="text-xs uppercase tracking-[0.16em] text-[#d7bf8a]">Quick Links</p>
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-white/80">
+            <Link href="/review" className="hover:text-[#d7b35f]">Review Us</Link>
+            <Link href="/orderfood" className="hover:text-[#d7b35f]">Food Menu</Link>
+            <Link href="/prebook" className="hover:text-[#d7b35f]">Enquiry</Link>
+            <a href="https://hotelexcella.bookmystay.io/" target="_blank" rel="noopener noreferrer" className="hover:text-[#d7b35f]">
+              Instant Booking
+            </a>
+          </div>
+        </div>
+
+        <p className="mt-5 text-[11px] text-white/55">@2022 Hotel Excella. All rights reserved.</p>
       </footer>
 
       <style jsx>{`
