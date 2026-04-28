@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
 import { Menu, X, Phone } from "lucide-react"
+import logoImage from "@/app/orderfood/images/logotransparent.png"
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -19,13 +20,13 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
             <span className="sr-only">Hotel Excella</span>
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
+              src={logoImage}
               alt="Hotel Excella Logo"
               width={120}
               height={60}
@@ -38,11 +39,12 @@ export function Header() {
         <div className="flex lg:hidden">
           <button
             type="button"
-            onClick={() => setMobileMenuOpen(true)}
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Close main menu" : "Open main menu"}
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground"
           >
-            <span className="sr-only">Open main menu</span>
-            <Menu className="h-6 w-6" aria-hidden="true" />
+            {mobileMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
           </button>
         </div>
 
@@ -51,7 +53,7 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200"
+              className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary"
             >
               {item.name}
             </Link>
@@ -61,14 +63,14 @@ export function Header() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
           <a
             href="tel:+919985908131"
-            className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             <Phone className="h-4 w-4" />
             <span>+91 99859 08131</span>
           </a>
           <Link
             href="/prebook"
-            className="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary hover:bg-primary/10 transition-all duration-200"
+            className="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-all duration-200 hover:bg-primary/10"
           >
             Check Availability
           </Link>
@@ -76,27 +78,30 @@ export function Header() {
             href="https://hotelexcella.bookmystay.io/"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-all duration-200"
+            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-all duration-200 hover:bg-primary/90"
           >
             Book Now
           </a>
         </div>
       </nav>
 
-      {/* Mobile menu */}
-      <div className={`lg:hidden ${mobileMenuOpen ? "block" : "hidden"}`}>
-        <div className="fixed inset-0 z-50" />
-        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-border">
+      <div className={`lg:hidden ${mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
+        <button
+          type="button"
+          aria-label="Close menu overlay"
+          onClick={() => setMobileMenuOpen(false)}
+          className={`fixed inset-0 z-40 bg-black/20 transition-opacity duration-200 ${mobileMenuOpen ? "opacity-100" : "opacity-0"}`}
+        />
+
+        <div
+          className={`fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-background px-6 py-6 shadow-xl ring-1 ring-border transition-transform duration-300 ${
+            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
               <span className="sr-only">Hotel Excella</span>
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-qq8Cvn8rVABsuUvFcXt0Nc1n64vZlL.png"
-                alt="Hotel Excella Logo"
-                width={100}
-                height={50}
-                className="h-10 w-auto"
-              />
+              <Image src={logoImage} alt="Hotel Excella Logo" width={100} height={50} className="h-10 w-auto" />
             </Link>
             <button
               type="button"
@@ -107,6 +112,7 @@ export function Header() {
               <X className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
+
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-border">
               <div className="space-y-2 py-6">
@@ -115,17 +121,15 @@ export function Header() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-medium text-foreground hover:bg-secondary transition-colors"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-secondary"
                   >
                     {item.name}
                   </Link>
                 ))}
               </div>
-              <div className="py-6 space-y-4">
-                <a
-                  href="tel:+919985908131"
-                  className="flex items-center gap-2 text-base font-medium text-foreground"
-                >
+
+              <div className="space-y-4 py-6">
+                <a href="tel:+919985908131" className="flex items-center gap-2 text-base font-medium text-foreground">
                   <Phone className="h-5 w-5 text-primary" />
                   <span>+91 99859 08131</span>
                 </a>
