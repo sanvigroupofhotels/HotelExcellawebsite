@@ -56,7 +56,7 @@ export default function HomePage() {
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-5 py-2.5 text-[0.95rem] font-semibold text-secondary-foreground border border-primary hover:bg-primary/10 transition-all duration-300"
               >
                 <ClipboardCheck className="h-4 w-4" />
-                Check Availability
+                Enquiry
               </Link>
             </div>
           </div>
