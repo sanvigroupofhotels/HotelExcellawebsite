@@ -8,7 +8,7 @@ const nextConfig = {
       beforeFiles: [
         {
           source: '/orderfood',
-          destination: 'https://hotelexcellafoodmenu.vercel.app',
+          destination: 'https://hotelexcellafoodmenu.vercel.app/',
         },
         {
           source: '/orderfood/:path*',
