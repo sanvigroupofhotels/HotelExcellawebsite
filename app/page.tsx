@@ -49,39 +49,37 @@ export default function HomePage() {
               A stay designed with comfort, cleanliness and convenience in mind.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="mt-5 flex flex-col sm:flex-row items-start sm:items-center gap-3">
-              <Link
-                href="/prebook"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-5 py-2.5 text-[0.95rem] font-semibold text-secondary-foreground border border-primary hover:bg-primary/10 transition-all duration-300"
-              >
-                <ClipboardCheck className="h-4 w-4" />
-                Enquiry
-              </Link>
-            </div>
-          </div>
+{/* CTA Buttons */}
+<div className="mt-3 flex flex-col sm:flex-row items-start sm:items-center gap-2">
+  <Link
+    href="/prebook"
+    className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-5 py-2.5 text-[0.95rem] font-semibold text-secondary-foreground border border-primary hover:bg-primary/10 transition-all duration-300"
+  >
+    <ClipboardCheck className="h-4 w-4" />
+    Enquiry
+  </Link>
+</div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-            <div className="w-5 h-9 border border-[#d7b35f]/50 rounded-full flex justify-center">
-              <div className="w-1 h-2.5 bg-[#d7b35f] rounded-full mt-2 animate-pulse" />
-            </div>
-          </div>
-        </section>
+{/* Scroll Indicator */}
+<div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+  <div className="w-5 h-9 border border-[#d7b35f]/50 rounded-full flex justify-center">
+    <div className="w-1 h-2.5 bg-[#d7b35f] rounded-full mt-2 animate-pulse" />
+  </div>
+</div>
 
-        {/* Trust Badges */}
-        <section className="relative z-10 bg-card border-y border-border py-8 -mt-16">
-          <div className="mx-auto max-w-7xl px-4">
-            <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-              {trustBadges.map((badge) => (
-                <div key={badge.label} className="flex flex-col items-center text-center p-4 rounded-xl bg-secondary/50">
-                  <badge.icon className="h-8 w-8 text-primary" />
-                  <span className="mt-2 text-sm font-medium text-foreground">{badge.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+{/* Trust Badges - moved closer to CTA */}
+<section className="relative z-10 bg-card border-y border-border py-6 -mt-10">
+  <div className="mx-auto max-w-7xl px-4">
+    <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+      {trustBadges.map((badge) => (
+        <div key={badge.label} className="flex flex-col items-center text-center p-4 rounded-xl bg-secondary/50">
+          <badge.icon className="h-8 w-8 text-primary" />
+          <span className="mt-2 text-sm font-medium text-foreground">{badge.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* (Rest of your main page sections remain unchanged) */}
 
