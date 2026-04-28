@@ -3,7 +3,7 @@ import GuestPortalClient from "./portal-client"
 
 export const metadata: Metadata = {
   title: "Guest Portal | Hotel Excella Vizag",
-  description: "Quick services at your fingertips. Access WiFi, book or extend your stay, contact reception, and more.",
+  description: "Quick services at your fingertips.",
 }
 
 export default function GuestPortalPage() {
