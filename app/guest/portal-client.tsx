@@ -158,7 +158,7 @@ export default function GuestPortalClient() {
               rel="noopener noreferrer"
               className="block rounded-lg border border-[#d4ad5a]/40 px-3 py-2 text-sm font-semibold text-[#d4ad5a]"
             >
-              Check Availability
+              Instant Booking
             </a>
           </nav>
         </aside>

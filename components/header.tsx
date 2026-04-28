@@ -32,8 +32,9 @@ export function Header() {
   }, [mobileMenuOpen])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
             <span className="sr-only">Hotel Excella</span>
@@ -86,15 +87,13 @@ export function Header() {
             rel="noopener noreferrer"
             className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition-all duration-200 hover:bg-primary/90"
           >
-            Check Availability
+            Instant Booking
           </a>
         </div>
-      </nav>
+        </nav>
+      </header>
 
-      <div
-        className={`lg:hidden ${mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
-        aria-hidden={!mobileMenuOpen}
-      >
+      <div className={`lg:hidden ${mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`} aria-hidden={!mobileMenuOpen}>
         <button
           type="button"
           aria-label="Close menu overlay"
@@ -154,13 +153,13 @@ export function Header() {
                     rel="noopener noreferrer"
                     className="block w-full rounded-lg bg-primary px-4 py-3 text-center text-base font-semibold text-primary-foreground shadow-sm"
                   >
-                    Check Availability
+                    Instant Booking
                   </a>
                 </div>
               </div>
             </div>
         </div>
       </div>
-    </header>
+    </>
   )
 }
