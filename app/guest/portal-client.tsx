@@ -315,6 +315,26 @@ export default function GuestPortalClient() {
                 <Linkedin className="h-[18px] w-[18px]" />
               </a>
             </div>
+
+            <div className="mt-5 border-t border-[#c8a45c]/30 pt-5 text-center">
+              <Link href="/guest" className="inline-flex items-center justify-center">
+                <Image src={logoImage} alt="Hotel Excella Logo" width={88} height={40} className="h-8 w-auto" />
+              </Link>
+              <p className="mt-3 text-sm text-white/75">Thank you for choosing Hotel Excella for your stay.</p>
+
+              <div className="mt-5">
+                <p className="text-xs uppercase tracking-[0.16em] text-[#d7bf8a]">Quick Links</p>
+                <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-white/80">
+                  <Link href="/review" className="hover:text-[#d7b35f]">Review Us</Link>
+                  <Link href="/orderfood" className="hover:text-[#d7b35f]">Food Menu</Link>
+                  <a href="https://hotelexcella.bookmystay.io/" target="_blank" rel="noopener noreferrer" className="hover:text-[#d7b35f]">
+                    Instant Booking
+                  </a>
+                </div>
+              </div>
+
+              <p className="mt-5 text-[11px] text-white/55">2022 Hotel Excella - All rights reserved.</p>
+            </div>
           </section>
         </div>
       </main>
@@ -393,27 +413,6 @@ export default function GuestPortalClient() {
           </div>
         </div>
       )}
-
-      <footer className="border-t border-[#c8a45c]/25 bg-[#0d0d0d] px-4 pb-8 pt-7 text-center">
-        <Link href="/guest" className="inline-flex items-center justify-center">
-          <Image src={logoImage} alt="Hotel Excella Logo" width={110} height={50} className="h-10 w-auto" />
-        </Link>
-        <p className="mt-3 text-sm text-white/75">Thank you for choosing Hotel Excella for your stay.</p>
-
-        <p className="mt-5 text-[11px] text-white/55">2022 Hotel Excella - All rights reserved.</p>
-
-        <div className="mt-5">
-          <p className="text-xs uppercase tracking-[0.16em] text-[#d7bf8a]">Quick Links</p>
-          <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-white/80">
-            <Link href="/review" className="hover:text-[#d7b35f]">Review Us</Link>
-            <Link href="/orderfood" className="hover:text-[#d7b35f]">Food Menu</Link>
-            <Link href="/prebook" className="hover:text-[#d7b35f]">Enquiry</Link>
-            <a href="https://hotelexcella.bookmystay.io/" target="_blank" rel="noopener noreferrer" className="hover:text-[#d7b35f]">
-              Instant Booking
-            </a>
-          </div>
-        </div>
-      </footer>
 
       <style jsx>{`
         @keyframes fadeCard {
