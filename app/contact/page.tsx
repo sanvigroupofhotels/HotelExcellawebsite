@@ -25,8 +25,8 @@ const contactMethods = [
     title: "Phone",
     description: "Call us directly for immediate assistance",
     details: [
+      { label: "+91 88594 44555", href: "tel:+918859444555" },
       { label: "+91 99859 08131", href: "tel:+919985908131" },
-      { label: "+91 77024 83811", href: "tel:+917702483811" },
     ],
     primary: true,
   },
@@ -223,22 +223,6 @@ export default function ContactPage() {
               >
                 Book Now
                 <ArrowRight className="h-5 w-5" />
-              </a>
-              <a
-                href="tel:+919985908131"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-8 py-4 text-lg font-semibold text-secondary-foreground border border-border hover:bg-secondary/80 transition-all duration-300"
-              >
-                <Phone className="h-5 w-5" />
-                Call Now
-              </a>
-              <a
-                href="https://wa.me/919985908131"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-green-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-green-700 transition-all duration-300"
-              >
-                <MessageCircle className="h-5 w-5" />
-                WhatsApp
               </a>
             </div>
           </div>

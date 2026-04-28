@@ -133,13 +133,16 @@ export function Header() {
                       {item.name}
                     </Link>
                   ))}
+                  <Link
+                    href="/guest"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-secondary"
+                  >
+                    Guest Portal
+                  </Link>
                 </div>
 
                 <div className="space-y-4 py-6">
-                  <a href="tel:+919985908131" className="flex items-center gap-2 text-base font-medium text-foreground">
-                    <Phone className="h-5 w-5 text-primary" />
-                    <span>+91 99859 08131</span>
-                  </a>
                   <Link
                     href="/prebook"
                     onClick={() => setMobileMenuOpen(false)}

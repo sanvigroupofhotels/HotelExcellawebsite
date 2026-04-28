@@ -109,7 +109,7 @@ export default function GuestPortalClient() {
   return (
     <div className="min-h-screen bg-[#060606] text-white">
       <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-4 py-3 sm:hidden">
-        <Link href="/" className="-m-1.5 p-1.5">
+        <Link href="/guest" className="-m-1.5 p-1.5">
           <span className="sr-only">Hotel Excella</span>
           <Image src={logoImage} alt="Hotel Excella Logo" width={92} height={42} className="h-9 w-auto" priority />
         </Link>
@@ -395,7 +395,7 @@ export default function GuestPortalClient() {
       )}
 
       <footer className="border-t border-[#c8a45c]/25 bg-[#0d0d0d] px-4 pb-8 pt-7 text-center">
-        <Link href="/" className="inline-flex items-center justify-center">
+        <Link href="/guest" className="inline-flex items-center justify-center">
           <Image src={logoImage} alt="Hotel Excella Logo" width={110} height={50} className="h-10 w-auto" />
         </Link>
         <p className="mt-3 text-sm text-white/75">Thank you for choosing Hotel Excella for your stay.</p>
@@ -433,7 +433,7 @@ export default function GuestPortalClient() {
           </div>
         </div>
 
-        <p className="mt-5 text-[11px] text-white/55">@2022 Hotel Excella. All rights reserved.</p>
+        <p className="mt-5 text-[11px] text-white/55">2022 Hotel Excella - All rights reserved.</p>
       </footer>
 
       <style jsx>{`
