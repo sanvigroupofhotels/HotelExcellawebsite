@@ -162,7 +162,7 @@ export default function HomePage() {
                   <h3 className="mt-2 text-[11px] leading-snug font-semibold text-foreground sm:mt-2.5 sm:text-sm lg:text-base">
                     {card.title}
                   </h3>
-                  <p className="mt-1 hidden text-[10px] leading-snug text-muted-foreground sm:block sm:text-xs sm:leading-relaxed lg:text-sm">
+                  <p className="mt-1 text-[10px] leading-snug text-muted-foreground sm:text-xs sm:leading-relaxed lg:text-sm">
                     {card.description}
                   </p>
                 </div>

@@ -122,12 +122,12 @@ export default function GuestPortalClient() {
                     <action.icon className="h-[18px] w-[18px] sm:h-5 sm:w-5" />
                   </div>
                   <h2 className="mt-3 text-[0.82rem] font-semibold leading-tight text-white sm:text-[0.95rem]">{action.title}</h2>
-                  <p className="mt-1 hidden text-[0.78rem] leading-snug text-white/73 sm:block sm:text-[0.84rem]">{action.description}</p>
+                  <p className="mt-1 text-[0.7rem] leading-snug text-white/73 sm:text-[0.84rem]">{action.description}</p>
                 </>
               )
 
               const classes =
-                "group flex min-h-[128px] flex-col justify-center rounded-xl border border-[#c8a45c]/45 bg-gradient-to-b from-[#111111] to-[#0b0b0b] p-3 text-left shadow-[0_20px_34px_-33px_rgba(0,0,0,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d7b877] active:scale-[0.97] sm:min-h-[144px] sm:rounded-2xl sm:p-4"
+                "group flex min-h-[136px] flex-col justify-center rounded-xl border border-[#c8a45c]/45 bg-gradient-to-b from-[#111111] to-[#0b0b0b] p-3 text-left shadow-[0_20px_34px_-33px_rgba(0,0,0,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d7b877] active:scale-[0.97] sm:min-h-[144px] sm:rounded-2xl sm:p-4"
 
               if (action.onClick) {
                 return (

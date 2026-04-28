@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Menu, X, Phone } from "lucide-react"
 import logoImage from "@/app/orderfood/images/logotransparent.png"
 
@@ -18,6 +18,18 @@ const navigation = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    if (!mobileMenuOpen) {
+      document.body.style.overflow = ""
+      return
+    }
+
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [mobileMenuOpen])
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
@@ -78,74 +90,72 @@ export function Header() {
         </div>
       </nav>
 
-      <div className={`lg:hidden ${mobileMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
-        <button
-          type="button"
-          aria-label="Close menu overlay"
-          onClick={() => setMobileMenuOpen(false)}
-          className={`fixed inset-0 z-[60] bg-black/35 transition-opacity duration-200 ${mobileMenuOpen ? "opacity-100" : "opacity-0"}`}
-        />
+      {mobileMenuOpen && (
+        <div className="lg:hidden">
+          <button
+            type="button"
+            aria-label="Close menu overlay"
+            onClick={() => setMobileMenuOpen(false)}
+            className="fixed inset-0 z-[60] bg-black/35"
+          />
 
-        <div
-          className={`fixed inset-y-0 right-0 z-[70] w-full max-w-sm overflow-y-auto bg-background px-6 py-6 shadow-xl ring-1 ring-border transition-transform duration-300 ${
-            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="flex items-center justify-between">
-            <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
-              <span className="sr-only">Hotel Excella</span>
-              <Image src={logoImage} alt="Hotel Excella Logo" width={100} height={50} className="h-10 w-auto" />
-            </Link>
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-foreground"
-            >
-              <span className="sr-only">Close menu</span>
-              <X className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
+          <div className="fixed inset-y-0 right-0 z-[70] w-full max-w-sm overflow-y-auto bg-background px-6 py-6 shadow-xl ring-1 ring-border animate-in slide-in-from-right duration-200">
+            <div className="flex items-center justify-between">
+              <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
+                <span className="sr-only">Hotel Excella</span>
+                <Image src={logoImage} alt="Hotel Excella Logo" width={100} height={50} className="h-10 w-auto" />
+              </Link>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                className="-m-2.5 rounded-md p-2.5 text-foreground"
+              >
+                <span className="sr-only">Close menu</span>
+                <X className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
 
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-border">
-              <div className="space-y-2 py-6">
-                {navigation.map((item) => (
+            <div className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-border">
+                <div className="space-y-2 py-6">
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-secondary"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+
+                <div className="space-y-4 py-6">
+                  <a href="tel:+919985908131" className="flex items-center gap-2 text-base font-medium text-foreground">
+                    <Phone className="h-5 w-5 text-primary" />
+                    <span>+91 99859 08131</span>
+                  </a>
                   <Link
-                    key={item.name}
-                    href={item.href}
+                    href="/prebook"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-medium text-foreground transition-colors hover:bg-secondary"
+                    className="block w-full rounded-lg border border-primary px-4 py-3 text-center text-base font-semibold text-primary"
                   >
-                    {item.name}
+                    Enquiry
                   </Link>
-                ))}
-              </div>
-
-              <div className="space-y-4 py-6">
-                <a href="tel:+919985908131" className="flex items-center gap-2 text-base font-medium text-foreground">
-                  <Phone className="h-5 w-5 text-primary" />
-                  <span>+91 99859 08131</span>
-                </a>
-                <Link
-                  href="/prebook"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full rounded-lg border border-primary px-4 py-3 text-center text-base font-semibold text-primary"
-                >
-                  Enquiry
-                </Link>
-                <a
-                  href="https://hotelexcella.bookmystay.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full rounded-lg bg-primary px-4 py-3 text-center text-base font-semibold text-primary-foreground shadow-sm"
-                >
-                  Check Availability
-                </a>
+                  <a
+                    href="https://hotelexcella.bookmystay.io/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full rounded-lg bg-primary px-4 py-3 text-center text-base font-semibold text-primary-foreground shadow-sm"
+                  >
+                    Check Availability
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </header>
   )
 }
