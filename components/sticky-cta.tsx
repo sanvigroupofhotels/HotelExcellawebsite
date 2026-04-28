@@ -29,7 +29,7 @@ export function StickyCTA({ guestMode = false, onAlertClick }: StickyCTAProps) {
               className="flex flex-col items-center justify-center py-3 text-white transition-colors hover:bg-[#141414]"
             >
               <UtensilsCrossed className="h-5 w-5" />
-              <span className="mt-1 text-xs font-medium">Food</span>
+              <span className="mt-1 text-xs font-medium">Order Food</span>
             </Link>
           ) : (
             <Link
