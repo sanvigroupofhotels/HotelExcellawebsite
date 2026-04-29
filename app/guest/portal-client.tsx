@@ -322,7 +322,7 @@ export default function GuestPortalClient() {
               <Link href="/guest" className="inline-flex items-center justify-start">
                 <Image src={logoImage} alt="Hotel Excella Logo" width={88} height={40} className="h-8 w-auto" />
               </Link>
-              <p className="mt-3 text-sm text-white/75">Thank you for choosing Hotel Excella for your stay.</p>
+              <p className="mt-3 text-sm text-white/75">Thank you for choosing us for your stay.</p>
 
               <div className="mt-5">
                 <p className="text-xs uppercase tracking-[0.16em] text-[#d7bf8a]">Quick Links</p>
