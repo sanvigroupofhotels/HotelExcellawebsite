@@ -318,7 +318,7 @@ export default function GuestPortalClient() {
               </div>
             </div>
 
-            <div className="px-1 py-1 text-left">
+            <div className="text-left">
               <Link href="/guest" className="inline-flex items-center justify-start">
                 <Image src={logoImage} alt="Hotel Excella Logo" width={88} height={40} className="h-8 w-auto" />
               </Link>
